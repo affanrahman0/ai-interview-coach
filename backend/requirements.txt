@@ -1,0 +1,38 @@
+# ==============================
+# PHASE 1 - Core + Auth + DB
+# ==============================
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+pydantic-settings
+sqlalchemy
+psycopg2-binary
+alembic
+passlib[bcrypt]
+bcrypt==4.0.1
+python-jose[cryptography]
+python-multipart
+jose
+types-python-jose
+email-validator
+pydantic[email]
+
+# ==============================
+# PHASE 2 - Resume parsing
+# ==============================
+pypdf
+pdfplumber
+
+# ==============================
+# PHASE 3/4 - AI integration
+# ==============================
+groq
+google-generativeai
+httpx
+
+# ==============================
+# PHASE 6 - Extras
+# ==============================
+# reportlab        # PDF report generation
+# cloudinary       # File storage
