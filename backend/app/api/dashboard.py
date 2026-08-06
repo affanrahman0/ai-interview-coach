@@ -23,10 +23,14 @@ def get_dashboard_summary(
     current_user: User = Depends(get_current_user)
 ):
     # Fetch all completed interviews for the current user
+    print(f"DEBUG: Fetching summary for user_id={current_user.id} ({current_user.email})")
+    
     interviews = db.query(Interview).filter(
         Interview.user_id == current_user.id, 
         Interview.status == "completed"
     ).all()
+    
+    print(f"DEBUG: Found {len(interviews)} COMPLETED interviews for this user.")
 
     if not interviews:
         return {
@@ -41,6 +45,9 @@ def get_dashboard_summary(
     scores = [cast(float, i.overall_score) for i in interviews if i.overall_score is not None]
     avg_score = round(sum(scores) / len(scores), 1) if scores else 0
     best_score = max(scores) if scores else 0
+    
+    print(f"DEBUG: Calculated Scores Array: {scores}")
+    print(f"DEBUG: Average Score: {avg_score}, Best Score: {best_score}")
 
     # 2. Aggregate Weakest Topics to Study across all feedback reports
     feedback_reports = db.query(Feedback).join(Interview).filter(
