@@ -21,6 +21,6 @@ at "{difficulty}" difficulty, personalized to the candidate's resume above.
 
 Rules:
 - Questions should reference specific skills/projects from the resume where relevant.
-- Return ONLY the questions, one question per line.
-- Do NOT include question numbers (1, 2, 3...), bullet points, or extra commentary.
+- You MUST output ONLY valid JSON in the exact following format:
+  {{"questions": ["question 1 text", "question 2 text", "question 3 text"]}}
 """

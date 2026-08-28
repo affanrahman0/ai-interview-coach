@@ -4,6 +4,14 @@ AI Interview Coach - Backend Entrypoint
 Uncomment sections as you complete each phase of the project.
 Run with: uvicorn main:app --reload
 """
+import logging
+
+# Configure global logging to write to a file
+logging.basicConfig(
+    filename='ai_coach.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

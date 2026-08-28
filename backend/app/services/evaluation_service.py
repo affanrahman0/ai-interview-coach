@@ -6,11 +6,12 @@ import json
 import re
 from app.config.settings import settings
 from app.prompts.evaluation_prompts import build_answer_evaluation_prompt, build_final_report_prompt
-
+import logging
 
 def extract_json_from_llm(text: str) -> dict:
     """Helper to extract JSON object from LLM response text."""
     try:
+        text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
         # Match JSON object in response
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if match:
@@ -32,11 +33,17 @@ def evaluate_answer(question_text: str, answer_text: str) -> dict:
             from groq import Groq
             client = Groq(api_key=settings.GROQ_API_KEY)
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
+                max_tokens=4000,
             )
 
             raw_output = response.choices[0].message.content or ""
+            
+            logging.info("="*50)
+            logging.info(f"RAW AI OUTPUT (EVALUATION):\n{raw_output}")
+            logging.info("="*50)
+            
             parsed = extract_json_from_llm(raw_output)
             if parsed and "technical_score" in parsed:
                 return parsed
@@ -78,10 +85,17 @@ def generate_final_feedback(interview) -> dict:
             client = Groq(api_key=settings.GROQ_API_KEY)
             prompt = build_final_report_prompt(evaluations_summary)
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
+                max_tokens=4000,
             )
+            
             raw_output = response.choices[0].message.content or ""
+            
+            logging.info("="*50)
+            logging.info(f"RAW AI OUTPUT (EVALUATION):\n{raw_output}")
+            logging.info("="*50)
+            
             parsed = extract_json_from_llm(raw_output)
             if parsed and "overall_score" in parsed:
                 return parsed

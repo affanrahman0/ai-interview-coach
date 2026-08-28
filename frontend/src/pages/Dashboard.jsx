@@ -103,7 +103,7 @@ const Dashboard = () => {
                   <div>
                     <p className="text-sm text-slate-400">Average Score</p>
                     {/* FIXED: average_score instead of avg_score */}
-                    <p className="text-2xl font-bold">{summary?.average_score != null ? `${summary.average_score}/100` : '--'}</p>
+                    <p className="text-2xl font-bold">{summary?.average_score != null ? `${summary.average_score}/10` : '--'}</p>
                   </div>
                 </div>
               </div>

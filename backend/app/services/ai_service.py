@@ -5,6 +5,8 @@ PHASE 3: Wrapper around the LLM provider (Groq or Gemini) for question generatio
 from app.config.settings import settings
 from app.prompts.interview_prompts import build_question_generation_prompt
 from groq import Groq
+import re 
+import logging
 
 def generate_interview_questions(
     resume_text: str,
@@ -25,12 +27,27 @@ def generate_interview_questions(
             
             client = Groq(api_key=settings.GROQ_API_KEY)
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
+                max_tokens=4000,
             )
 
-            raw_output = response.choices[0].message.content or ""
-            questions = [q.strip() for q in raw_output.split("\n") if q.strip()]
+            raw_output = response.choices[0].message.content or "{}"
+            
+            logging.info("="*50)
+            logging.info(f"RAW AI OUTPUT (QUESTIONS):\n{raw_output}")
+            logging.info("="*50)
+            
+            raw_output = re.sub(r'<think>.*?</think>', '', raw_output, flags=re.DOTALL)
+            
+            import json
+            match = re.search(r"\{.*\}", raw_output, re.DOTALL)
+            if match:
+                parsed = json.loads(match.group(0))
+            else:
+                parsed = json.loads(raw_output)
+                
+            questions = parsed.get("questions", [])
             if questions:
                 return questions[:num_questions]
         except Exception as e:
