@@ -74,6 +74,14 @@ const ResumeUpload = () => {
           </p>
         </div>
 
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              accept="application/pdf"
+              className="hidden"
+            />
+        
         {/* Existing Resume Card (Only shows if they uploaded one previously) */}
         {existingResume && !file && (
           <div className="bg-slate-900 border border-emerald-500/30 p-6 rounded-2xl shadow-[0_0_15px_rgba(16,185,129,0.1)] transition-all">
@@ -111,13 +119,7 @@ const ResumeUpload = () => {
         {(!existingResume || file) && (
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
             {/* Hidden Input File Field */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              accept="application/pdf"
-              className="hidden"
-            />
+            
 
             <div
               onClick={() => fileInputRef.current.click()}

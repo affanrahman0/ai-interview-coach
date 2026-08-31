@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str | None = None
 
     # ---- Phase 6: File storage ----
-    # CLOUDINARY_URL: str | None = None
+    CLOUDINARY_URL: str | None = None
 
     class Config:
         env_file = ".env"

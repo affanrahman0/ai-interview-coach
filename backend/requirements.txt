@@ -34,5 +34,5 @@ httpx
 # ==============================
 # PHASE 6 - Extras
 # ==============================
-# reportlab        # PDF report generation
-# cloudinary       # File storage
+reportlab        # PDF report generation
+cloudinary       # File storage

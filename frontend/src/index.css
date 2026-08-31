@@ -3,3 +3,21 @@
 @tailwind utilities;
 
 /* PHASE 1: add global styles / custom fonts here as design solidifies */
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155; /* Matches Tailwind's slate-700 */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* Matches Tailwind's slate-600 */
+}

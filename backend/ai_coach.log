@@ -1657,3 +1657,1079 @@ Thinking Process:
   ]
 }
 2026-08-28 08:23:09,941 - INFO - ==================================================
+2026-08-29 09:10:15,015 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:10:15,097 - INFO - ==================================================
+2026-08-29 09:10:15,097 - INFO - RAW AI OUTPUT (QUESTIONS):
+
+<think>
+Thinking Process:
+
+1.  **Deconstruct the Resume:**
+    *   *Name:* Affan Rahman.
+    *   *Education:* SISTern Vedita University, Btech CSBS, 2020-2024, CGPA 9.28/10.
+    *   *Experience:* TCS, Systems Engineer (Prime), Jan 2025–Present, Kolkata.
+        *   Projects: OCR microservice (Tesseract, RegEx), XGBoost regressor for insurance reserves, RESTful microservices with FastAPI, Python integration with Java backend.
+    *   *Projects:*
+        *   MotionPrint: Gait recognition, LSTM, accelerometer/gyroscope data.
+        *   ProctorPulse: Online exam platform, MERN stack, Redux.
+        *   PhotoSignify: Flask API, TensorFlow/Keras, CNN for face/signature classification.
+    *   *Skills:* C, C++, Python, Javascript, HTML, CSS, React, Nodejs, Expressjs, Redux, PL/SQL, MongoDb.
+    *   *Achievements:* Amazon ML Summer School 2023, 900+ LeetCode problems, Global rank 81 CodeChef Oct 2021 DIV3, 3-star LeetCode, Hacktoberfest 2021, Technical Lead HackClub SNU, Problem Setter CodeChef SNU.
+    *   *Current Date Context:* Resume says "Last updated 11th May 2025", "Jan 2025–Present". This implies the interview is happening around or after May 2025. The candidate has about 4-6 months of experience at TCS.
+
+2.  **Filter for "HR" Interview and "Easy" Difficulty:**
+    *   *HR Interview Focus:* Culture fit, motivation, soft skills, career goals, situational questions, understanding of role, teamwork, communication. *Not* deep technical coding or algorithm questions.
+    *   *Easy Difficulty:* Straightforward questions, no behavioral traps, simple recall or self-reflection. Good for HR to get a feel for the candidate.
+    *   *Personalization:* Questions must touch upon specific resume points to show relevance, even if they are HR-style. For example, instead of "Tell me about yourself," use "Tell me about your transition to TCS and what you enjoyed most about the OCR project."
+
+3.  **Drafting Questions (Iterative Process):**
+    *   *Attempt 1 (Mental Drafts):*
+        *   Q1: Tell me about yourself. -> *Too generic.* -> *Better:* "Affan, you have a strong academic background with a 9.28 CGPA and are currently working at TCS. Could you walk me through what initially drew you to machine learning and data science, and how that interest led to your current role?"
+        *   Q2: Why do you want to join us? -> *Standard HR.* -> *Personalized:* "You've worked on diverse projects like MotionPrint using LSTMs and the ProctorPulse MERN app. How does this mix of AI and full-stack experience align with your career goals for the next few years?"
+        *   Q3: Tell me about a challenge. -> *HR Behavioral.* -> *Personalized:* "In your resume, you mention integrating Python-based microservices with an existing Java backend at TCS. From a non-technical perspective, how did you handle the communication and coordination required to make this integration successful within your team?"
+        *   Q4: You are a competitive coder. -> *Resume highlight.* -> *Personalized:* "You've achieved a 3-star rating on LeetCode and a global rank on CodeChef. How has your participation in competitive programming contests influenced your work ethic or problem-solving approach during your time at TCS or in your academic projects?"
+        *   Q5: Leadership role. -> *Resume highlight.* -> *Personalized:* "You served as the Technical Lead at HackClub SNU. What did you enjoy most about being in a leadership position, and how do you handle situations where team members have different opinions?"
+
+    *   *Review against constraints:*
+        *   5 Questions? Yes.
+        *   HR Interview style? Yes (Focus on motivation, goals, teamwork, work ethic, leadership).
+        *   Easy Difficulty? Yes (Direct questions, safe topics, open-ended but not complex).
+        *   Personalized? Yes (References TCS, CGPA, Projects like MotionPrint/ProctorPulse, Integration work, LeetCode/CodeChef achievements, HackClub Lead).
+        *   JSON Format? Need to format output.
+
+4.  **Refining Question Text for "Easy" and "HR" Tone:**
+    *   *Q1:* "Affan, you have a CGPA of 9.28 and are currently working as a Systems Engineer at TCS. Could you share what motivated you to pursue a career in technology and how your academic journey prepared you for your role at TCS?" -> *Good, covers education and current role.*
+    *   *Q2:* "I see you built the 'ProctorPulse' online examination platform using the MERN stack. What was your favorite part of developing this project, and what did you enjoy most about building a user-friendly interface for students and administrators?" -> *Good, covers a specific project, focuses on enjoyment/satisfaction (HR trait).*
+    *   *Q3:* "You mentioned integrating Python microservices with an existing Java backend at TCS. In a team setting, how do you approach explaining technical changes or new workflows to stakeholders who might not have a deep technical background?" -> *HR focus: Communication skills. Personalized: TCS integration project. Easy: Standard communication question framed around resume.*
+    *   *Q4:* "You have impressive achievements in competitive programming, including being a 3-star coder on LeetCode and ranking globally on CodeChef. How has the discipline learned from competitive programming helped you manage your workload and time during your internship or college projects?" -> *HR focus: Time management/Discipline. Personalized: Achievements. Easy: Positive spin on achievements.*
+    *   *Q5:* "You were the Technical Lead at HackClub SNU. What did you find most rewarding about leading a student community, and how do you typically encourage collaboration among team members?" -> *HR focus: Leadership/Collaboration. Personalized: HackClub. Easy: Positive leadership question.*
+
+5.  **Final JSON Construction:**
+    ```json
+    {
+      "questions": [
+        "Affan, you achieved a CGPA of 9.28 and are currently working as a Systems Engineer at TCS. Could you tell me what originally sparked your interest in computer science and how your academic journey has prepared you for your professional career so far?",
+        "I noticed you developed the 'ProctorPulse' online examination platform using the MERN stack. What was the most enjoyable aspect of building this application, and what did you learn about user-centric design from creating interfaces for both students and administrators?",
+        "You mentioned integrating Python-based microservices with an existing Java backend at TCS to enable automated workflows. From a collaboration perspective, how did you work with your team to ensure this integration was communicated effectively and implemented smoothly?",
+        "You have strong competitive programming achievements, including being a 3-star coder on LeetCode and ranking globally on CodeChef. How has the routine and discipline required for competitive coding influenced your approach to managing tasks and deadlines in your academic and professional projects?",
+        "As the Technical Lead at HackClub SNU, what did you enjoy most about supporting your peers, and how do you generally foster a positive and collaborative environment within a technical team?"
+      ]
+    }
+    ```
+
+6.  **Final Check:**
+    *   5 questions? Yes.
+    *   HR focus? Yes (Interest, Enjoyment, Collaboration, Discipline/Deadlines, Team environment).
+    *   Easy? Yes (Direct, open-ended, positive framing).
+    *   Personalized? Yes (CGPA/TCS, ProctorPulse/MERN, TCS Integration, LeetCode/CodeChef, HackClub).
+    *   Valid JSON? Yes.
+    *   Output ONLY JSON? Yes.
+
+This looks solid.
+</think>
+
+{
+  "questions": [
+    "Affan, you achieved a CGPA of 9.28 and are currently working as a Systems Engineer at TCS. Could you tell me what originally sparked your interest in computer science and how your academic journey has prepared you for your professional career so far?",
+    "I noticed you developed the 'ProctorPulse' online examination platform using the MERN stack. What was the most enjoyable aspect of building this application, and what did you learn about user-centric design from creating interfaces for both students and administrators?",
+    "You mentioned integrating Python-based microservices with an existing Java backend at TCS to enable automated workflows. From a collaboration perspective, how did you work with your team to ensure this integration was communicated effectively and implemented smoothly?",
+    "You have strong competitive programming achievements, including being a 3-star coder on LeetCode and ranking globally on CodeChef. How has the routine and discipline required for competitive coding influenced your approach to managing tasks and deadlines in your academic and professional projects?",
+    "As the Technical Lead at HackClub SNU, what did you enjoy most about supporting your peers, and how do you generally foster a positive and collaborative environment within a technical team?"
+  ]
+}
+2026-08-29 09:10:15,098 - INFO - ==================================================
+2026-08-29 09:11:00,534 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:11:00,588 - INFO - ==================================================
+2026-08-29 09:11:00,589 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** "Affan, you achieved a CGPA of 9.28 and are currently working as a Systems Engineer at TCS. Could you tell me what originally sparked your interest in computer science and how your academic journey has prepared you for your professional career so far?"
+   - **Candidate Answer:** "It was very easy for me. I'm too intelligent."
+   - **Output Format:** STRICT JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`. Scores 0-10.
+
+2.  **Evaluate Candidate Answer against Criteria:**
+   - *Question asks for:* Spark of interest in CS, and how academic journey prepared them for professional career.
+   - *Candidate's response:* "It was very easy for me. I'm too intelligent."
+   - *Technical Score:* 0/10. No technical concepts, no demonstration of CS knowledge, no mention of academic/professional alignment.
+   - *Communication Score:* 0/10. Arrogant, dismissive, completely fails to address the prompt, unprofessional.
+   - *Completeness Score:* 0/10. Directly ignores both parts of the question.
+   - *Confidence Score:* 10/10 (superficially, they sound very confident, but it's delusional/arrogant). I'll rate it 10 for the *trait* of confidence, but note it's unhealthy/unwarranted in context. Actually, in interview scoring, overconfidence/arrogance usually lowers the score, but the prompt asks for a "confidence_score" (0-10). I'll give it a 10 for sheer confidence, or maybe 8? I'll stick with 10 for the raw confidence displayed, though it's negative in context. Wait, typically confidence scores in these rubrics measure how self-assured they are, regardless of quality. I'll give 10.
+   - *Missing Concepts:* Need to list what they missed: "spark of interest in CS", "academic projects/courses", "skill development", "transition to professional role", "problem-solving approach", "teamwork/collaboration", "continuous learning".
+   - *Better Answer:* Need to craft a concise, professional, structured response that addresses both parts of the question, references their high CGPA and TCS role appropriately, and shows humility and relevance.
+   - *Learning Resources:* Suggest resources for interview preparation, professional communication, situational/behavioral questions, and portfolio/academic reflection. E.g., "Cracking the Coding Interview", "Interviewing Google", LinkedIn Learning courses on behavioral interviews, STAR method guides.
+
+3.  **Draft JSON (Mental Refinement):**
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 1,
+     "completeness_score": 0,
+     "confidence_score": 10,
+     "missing_concepts": [
+       "Initial spark or motivation for choosing computer science",
+       "Key academic projects or coursework that built foundational skills",
+       "How theoretical knowledge translated to practical problem-solving",
+       "Preparation for software engineering practices (version control, SDLC, testing)",
+       "Alignment of academic achievements with current role at TCS",
+       "Demonstration of continuous learning and adaptability"
+     ],
+     "better_answer": "My interest in computer science began in high school when I built my first web scraper to automate repetitive tasks. That experience showed me how code could solve real-world problems efficiently, which led me to pursue a degree in the field. Academically, maintaining a 9.28 CGPA wasn't just about grades; it was about mastering fundamentals like data structures, algorithms, and system design while collaborating on team projects that mimicked real software development workflows. These experiences taught me disciplined debugging, version control, and agile collaboration—skills that directly prepared me for the fast-paced, client-driven environment at TCS. Today, as a Systems Engineer, I rely heavily on that academic foundation to design scalable solutions and continuously upskill through certifications and hands-on projects.",
+     "learning_resources": [
+       "The Complete Interview Mastery Course by Hiren Patel (LinkedIn Learning)",
+       "\"Cracking the PM Interview\" & \"Cracking the Coding Interview\" by Gayle Laakmann McDowell",
+       "STAR Method Framework guides for behavioral interviewing",
+       "\"How to Win Friends and Influence People\" by Dale Carnegie (for professional communication)",
+       "Practice modules on platforms like Pramp or Interviewing.io for mock interview feedback"
+     ]
+   }
+   ```
+
+4.  **Check Constraints:**
+   - ONLY valid JSON? Yes.
+   - Exact shape? Yes.
+   - Scores 0-10? Yes.
+   - Keys match exactly? Yes.
+   - Content appropriate? Yes.
+
+   One minor adjustment: `confidence_score` might be interpreted as "how well did they convey confidence?" In many evaluation rubrics, inappropriate overconfidence scores low. But I'll stick with 10 for the raw trait, or maybe 9 to reflect it's present but misdirected. Actually, I'll give it 10 since they literally said "I'm too intelligent" which is peak confidence, even if counterproductive. I'll keep it at 10. Alternatively, I could rate it 2 because it's arrogant/delusional confidence, not professional confidence. I'll go with 10 for the metric itself, but the lower scores elsewhere capture the poor quality. Actually, standard interview rubrics often penalize arrogance in confidence scores. I'll rate it 8 to show high confidence but note it's professionalism lacking. I'll stick with 10 for simplicity, or maybe 9. Let's just use 10. It doesn't matter too much as long as it's 0-10.
+
+   Wait, let's reconsider `confidence_score`. In interview contexts, it usually measures professional poise. This candidate lacks it due to arrogance. I'll give it a 2. Actually, I'll just give 10 as requested by the prompt's implied scale, but it's fine either way. I'll stick with 10.
+
+   Let's verify the JSON structure matches exactly:
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 1,
+     "completeness_score": 0,
+     "confidence_score": 10,
+     "missing_concepts": [...],
+     "better_answer": "...",
+     "learning_resources": [...]
+   }
+   ```
+   All good. I will generate exactly this. No extra text. Ensure valid JSON formatting. Escape quotes if necessary. The prompt says "Return ONLY valid JSON". I will strictly output only the JSON object.
+
+   One check: `better_answer` should be a single string. I'll make sure it's properly formatted.
+   `missing_concepts` and `learning_resources` are arrays of strings.
+   All scores are integers 0-10.
+   Ready.✅
+   Output matches exactly.✅
+   Proceeds. 
+   Self-Correction/Refinement during thought: 
+   I should make sure the `better_answer` is realistic for someone with a 9.28 CGPA and a TCS role. The drafted one is good. 
+   For `confidence_score`, I'll actually give it a 9 to reflect high self-assurance, even if misplaced. Or 10. I'll stick with 10. 
+   All constraints met. Output matches request.✅
+   Generating. 
+   [Output Generation] -> *Proceeds*
+   *(Self-Correction/Verification during drafting)*: 
+   The prompt asks for exact shape. I will ensure no markdown formatting interferes if possible, but markdown code blocks are usually fine. I'll output raw JSON to be safe. Actually, the prompt says "Return ONLY valid JSON with this exact shape:". I will output just the JSON string.
+   Checks:
+   - technical_score: 0
+   - communication_score: 1 (or 0, it's extremely poor)
+   - completeness_score: 0
+   - confidence_score: 10 (raw confidence)
+   - missing_concepts: array
+   - better_answer: string
+   - learning_resources: array
+   All good.✅
+   Output matches. 
+   Proceeds. 
+   [Final JSON Generation] -> *Output matches the refined version.* 
+   *(Note: I'll make sure the JSON is perfectly valid and contains no extra text.)*
+   `{ "technical_score": 0, "communication_score": 1, "completeness_score": 0, "confidence_score": 10, "missing_concepts": ["Initial motivation/interest in computer science", "Relevant academic coursework or projects", "Translation of theoretical knowledge to practical engineering skills", "Preparation for agile/software development workflows", "Connection between academic discipline and TCS role responsibilities", "Professional humility and collaborative mindset"], "better_answer": "My interest in computer science started when I automated a repetitive task in high school using Python. Seeing how code could instantly optimize workflows fascinated me and led me to major in the field. Academically, earning a 9.28 CGPA required deep dives into data structures, algorithms, and system design, but more importantly, it taught me structured problem-solving, rigorous debugging, and collaborative project management. These academic experiences directly prepared me for my role at TCS by instilling disciplined coding practices, adaptability to new tech stacks, and the ability to translate business requirements into scalable technical solutions. I continue to leverage that foundation while expanding my expertise through industry certifications and real-world client projects.", "learning_resources": ["\"Cracking the Coding Interview\" by Gayle Laakmann McDowell", "LinkedIn Learning: \"Ace Your Job Interview\"", "STAR Method Behavioral Interview Guides", "\"How to Win Friends and Influence People\" by Dale Carnegie", "Pramp or Interviewing.io for mock interview practice"] }`
+   All constraints met. Output matches.✅
+   Proceeds. 
+   [Output Generation] (matches the final JSON)
+   *(Self-Correction/Note during thought)*: I'll make sure the JSON is properly formatted with newlines for readability, but strictly valid. The prompt says "Return ONLY valid JSON". I will output just the JSON object. No extra text. All good. 
+   Final Check of the prompt: "Return ONLY valid JSON with this exact shape:" -> I will comply strictly.
+   Output matches.✅
+   [Done] 
+   *Output Generation* (proceeds)
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 1,
+  "completeness_score": 0,
+  "confidence_score": 10,
+  "missing_concepts": [
+    "Initial motivation or spark for choosing computer science",
+    "Relevant academic coursework, labs, or capstone projects",
+    "Translation of theoretical knowledge to practical engineering skills",
+    "Preparation for software development lifecycles and Agile methodologies",
+    "Connection between academic discipline and current TCS responsibilities",
+    "Professional humility, teamwork, and continuous learning mindset"
+  ],
+  "better_answer": "My interest in computer science began in high school when I wrote my first automation script in Python. Seeing how a few lines of code could eliminate repetitive work instantly fascinated me, and I knew I wanted to build solutions at scale. Academically, maintaining a 9.28 CGPA required rigorous study of data structures, algorithms, and system design, but more importantly, it taught me structured problem-solving, disciplined debugging, and collaborative project management through team-based coursework. These experiences directly prepared me for my role at TCS by instilling strong fundamentals, adaptability to new tech stacks, and the ability to translate client requirements into reliable, scalable systems. I continue to build on that academic foundation through hands-on client projects, internal training, and industry certifications.",
+  "learning_resources": [
+    "\"Cracking the Coding Interview\" by Gayle Laakmann McDowell",
+    "LinkedIn Learning: \"Ace Your Job Interview\" & \"Communicating with Compassion and Professionalism\"",
+    "STAR Method Behavioral Interview Frameworks",
+    "\"Dare to Lead\" by Brené Brown (for professional humility and emotional intelligence)",
+    "Pramp, Interviewing.io, or CareerCup for structured mock interview feedback"
+  ]
+}
+2026-08-29 09:11:00,589 - INFO - ==================================================
+2026-08-29 09:11:29,797 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:11:29,801 - INFO - ==================================================
+2026-08-29 09:11:29,801 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** "I noticed you developed the 'ProctorPulse' online examination platform using the MERN stack. What was the most enjoyable aspect of building this application, and what did you learn about user-centric design from creating interfaces for both students and administrators?"
+   - **Candidate Answer:** "For money"
+   - **Output Format:** Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`
+
+2.  **Evaluate Candidate Answer against Question:**
+   - The question asks about:
+     a) Most enjoyable aspect of building ProctorPulse (MERN stack)
+     b) Lessons learned about user-centric design for dual interfaces (students & admins)
+   - The answer "For money" is completely off-topic, unprofessional, and fails to address any part of the question. It shows zero technical understanding, poor communication, zero completeness, and likely low confidence or inappropriate motivation framing.
+
+3.  **Determine Scores (0-10 scale):**
+   - `technical_score`: 0/10. No technical content about MERN, architecture, or development process.
+   - `communication_score`: 0/10. Inappropriate, unprofessional, and completely fails to address the prompt.
+   - `completeness_score`: 0/10. Does not answer either part of the question.
+   - `confidence_score`: 1/10. Might appear confident in a dismissal, but in an interview context, it's extremely poor. I'll stick to 0 or 1. Let's go with 0 as it's dismissive and unprofessional rather than confidently answering.
+   - `missing_concepts`: Needs to list what was missing based on the question. MERN stack implementation details, enjoyable aspects of development, user-centric design principles, dual-interface challenges, UX/UI considerations, feedback loops, accessibility, etc.
+   - `better_answer`: Craft a strong, balanced response that addresses both parts of the question professionally, mentioning MERN, the enjoyable part (e.g., real-time proctoring, state management, or full-stack integration), and user-centric design lessons (e.g., distinct workflows, empathy mapping, responsive design, accessibility, iterative testing).
+   - `learning_resources`: Provide relevant resources for MERN stack, UX/UI design, user-centric design, and interview preparation.
+
+4.  **Draft JSON Content (Mental Refinement):**
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 0,
+     "missing_concepts": ["MERN stack architecture & development workflow", "Full-stack integration challenges & solutions", "User-centric design principles", "Dual-interface UX considerations (student vs. admin)", "Iterative testing & user feedback loops", "Accessibility & responsive design"],
+     "better_answer": "The most rewarding part was bridging the frontend and backend using the MERN stack, particularly implementing real-time state synchronization for live proctoring and exam submission. It was satisfying to see Node.js and Express handle secure routes while React provided a responsive, dynamic UI. From a user-centric design perspective, building two distinct interfaces taught me the importance of empathy mapping and role-based UX. Students needed a distraction-free, accessible, and intuitive testing environment with clear progress indicators, while administrators required dense data visualization, quick filtering, and automated grading workflows. I learned that user-centric design isn't just about aesthetics—it's about aligning system complexity with user mental models, conducting early usability testing, and iterating based on actual feedback rather than assumptions.",
+     "learning_resources": [
+       "MDN Web Docs - MERN Stack Tutorials",
+       "Nielsen Norman Group - UX Research & Usability Guidelines",
+       "Refactoring UI - Practical Frontend Design for Developers",
+       "Book: 'Don't Make Me Think' by Steve Krug",
+       "Coursera: 'UX Design Specialization' by California Institute of the Arts"
+     ]
+   }
+   ```
+
+5.  **Validate against Constraints:**
+   - Return ONLY valid JSON
+   - Exact shape required
+   - Scores are 0-10 integers
+   - missing_concepts is an array of strings
+   - better_answer is a string
+   - learning_resources is an array of strings
+   - All constraints met.
+
+   I will double-check the prompt: "Return ONLY valid JSON with this exact shape:"
+   I will ensure no markdown formatting interferes if possible, but standard JSON output is fine. I'll output raw JSON.
+   Scores: 0 across the board is appropriate for "For money".
+   Missing concepts: accurately reflect the question's demands.
+   Better answer: directly addresses both parts professionally.
+   Learning resources: relevant and actionable.
+
+   Everything looks solid. Proceed. 
+   One minor adjustment: I'll make sure the JSON is strictly formatted without markdown code blocks if the prompt says "Return ONLY valid JSON", but usually markdown is acceptable. I'll just output the raw JSON string to be safe. Actually, the prompt says "Return ONLY valid JSON with this exact shape:", so I will output just the JSON object. I'll ensure proper escaping if needed, but it's straightforward.
+
+   Final check of the JSON structure matches exactly.
+   All good.✅
+   Output matches the refined draft. 
+   Proceeds. 
+   [Output Generation] -> *Self-Correction/Verification during thought*: 
+   Wait, should I include markdown? The prompt says "Return ONLY valid JSON". I will output just the JSON text. I'll make sure it's perfectly valid.
+   Scores: 0, 0, 0, 0. Could argue confidence is 0 because it's dismissive. I'll stick with 0.
+   missing_concepts: array of strings.
+   better_answer: string.
+   learning_resources: array of strings.
+   All good.✅
+   Output matches. 
+   Proceeds. 
+   [Output Generation] -> *Output Generation* (matches the refined draft)
+   `{ "technical_score": 0, "communication_score": 0, "completeness_score": 0, "confidence_score": 0, "missing_concepts": ["MERN stack implementation details", "Full-stack development workflow", "User-centric design principles", "Role-based interface design (student vs. admin)", "Usability testing & iteration", "Accessibility and responsive UX"], "better_answer": "The most enjoyable aspect was architecting the real-time data flow between MongoDB and React using Express and Node.js, particularly implementing secure, low-latency state updates for live proctoring. It was highly satisfying to see the full stack work cohesively. Regarding user-centric design, building separate interfaces for students and administrators taught me the critical importance of role-based empathy and contextual UX. For students, I prioritized a distraction-free, accessible environment with clear progress indicators and intuitive navigation to reduce test anxiety. For admins, I focused on data density, quick filtering, and streamlined moderation workflows. I learned that user-centric design requires early persona mapping, continuous usability testing with actual target users, and iterating based on behavioral data rather than assumptions. Ultimately, it reinforced that good design isn't just about UI aesthetics—it's about solving specific user pain points efficiently.", "learning_resources": ["Nielsen Norman Group - UX Research & Usability Guidelines", "MDN Web Docs - Modern JavaScript & MERN Architecture", "Book: 'Don't Make Me Think' by Steve Krug", "Refactoring UI (by Adam Wathan & Steve Schoger)", "Coursera: 'UX Design Specialization' by California Institute of the Arts"] }`
+   All constraints met. Ready. 
+   Output matches exactly.✅
+   *(Self-Correction/Note during generation prep)*: I'll format it properly with indentation for readability, but it's still valid JSON. The prompt says "Return ONLY valid JSON with this exact shape", so I will output just the JSON object. I'll ensure strict compliance.
+   Proceeds. 
+   [Output Generation] -> *Outputs JSON*
+   *(Done.)*
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "MERN stack architecture & implementation details",
+    "Full-stack integration & state management",
+    "User-centric design principles",
+    "Role-based UX considerations (student vs. admin)",
+    "Usability testing & iterative feedback loops",
+    "Accessibility & responsive interface design"
+  ],
+  "better_answer": "The most enjoyable aspect was bridging the frontend and backend using the MERN stack, particularly implementing real-time state synchronization for live proctoring and exam submission. It was highly satisfying to see Express handle secure routes while React provided a responsive, dynamic UI that scaled smoothly with MongoDB. From a user-centric design perspective, building two distinct interfaces taught me the importance of role-based empathy and contextual UX. Students needed a distraction-free, accessible environment with clear progress indicators to reduce test anxiety, while administrators required dense data visualization, quick filtering, and streamlined moderation workflows. I learned that user-centric design isn't just about aesthetics—it's about aligning system complexity with user mental models, conducting early usability testing, and iterating based on actual feedback rather than assumptions.",
+  "learning_resources": [
+    "Nielsen Norman Group - UX Research & Usability Guidelines",
+    "MDN Web Docs - Modern JavaScript & MERN Architecture",
+    "Book: 'Don't Make Me Think' by Steve Krug",
+    "Refactoring UI (by Adam Wathan & Steve Schoger)",
+    "Coursera: 'UX Design Specialization' by California Institute of the Arts"
+  ]
+}
+2026-08-29 09:11:29,803 - INFO - ==================================================
+2026-08-29 09:12:21,583 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:12:21,586 - INFO - ==================================================
+2026-08-29 09:12:21,588 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Thinking Process:
+
+1.  **Deconstruct the User Request:**
+    *   Role: Expert interview evaluator.
+    *   Task: Evaluate a candidate's answer to a specific question.
+    *   Question: "You mentioned integrating Python-based microservices with an existing Java backend at TCS to enable automated workflows. From a collaboration perspective, how did you work with your team to ensure this integration was communicated effectively and implemented smoothly?"
+    *   Candidate Answer: "I don't owe you an explanation"
+    *   Output Format: Valid JSON with specific keys (`technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`).
+
+2.  **Evaluate the Candidate Answer:**
+    *   *Content:* The answer is "I don't owe you an explanation".
+    *   *Technical Score:* 0/10. No technical content. Refusal to answer.
+    *   *Communication Score:* 0/10. Hostile, unprofessional, non-responsive.
+    *   *Completeness Score:* 0/10. Zero completeness.
+    *   *Confidence Score:* This is tricky. The candidate might be "confident" in their refusal, but in the context of an interview, confidence usually relates to conviction in one's answers. A refusal indicates a lack of confidence in the process or a total breakdown. However, sometimes evaluators score confidence based on how well the candidate projects themselves. Here, it's a refusal. I'd rate this 0 or 1. Usually, a flat refusal is seen as zero value. Let's go with 0.
+    *   *Missing Concepts:* Everything is missing. Collateral strategy, communication channels, conflict resolution, technical integration details (API contracts, data formats), risk management, stakeholder management.
+    *   *Better Answer:* Needs to model a STAR response. Situation: TCS, Python microservices vs Java backend. Task: Integrate for automation. Action: Collaboration steps (meetings, contracts, documentation, CI/CD, peer reviews). Result: Smooth integration, automated workflows.
+    *   *Learning Resources:* Resources on behavioral interviews, STAR method, cross-team collaboration, API design.
+
+3.  **Draft the JSON Content:**
+    *   `technical_score`: 0
+    *   `communication_score`: 0
+    *   `completeness_score`: 0
+    *   `confidence_score`: 0
+    *   `missing_concepts`: List key concepts from the question that were ignored.
+        *   "Cross-language integration strategies"
+        *   "API contract definition (e.g., REST/gRPC)"
+        *   "Communication frameworks (e.g., daily standups, documentation)"
+        *   "Conflict resolution"
+        *   "Stakeholder alignment"
+        *   "Testing and validation strategies"
+        *   "CI/CD pipeline integration"
+    *   `better_answer`: Construct a comprehensive example.
+        *   *Drafting:* "At TCS, I led the integration of Python microservices with a legacy Java backend. To ensure collaboration, I established a shared API contract using OpenAPI/Swagger first, which served as the single source of truth for both teams. We held bi-weekly syncs between the Java and Python squads to discuss implementation progress and blockers. I introduced contract testing in the CI/CD pipeline to catch breaking changes early. This structured communication prevented silos and ensured the automated workflows went live with zero downtime."
+    *   `learning_resources`:
+        *   "STAR Method for Behavioral Interviews"
+        *   "Effective Cross-Team Collaboration Strategies"
+        *   "API Design Best Practices"
+        *   "Behavioral Interview Preparation Guide"
+
+4.  **Review and Refine JSON:**
+    *   *Constraint Check:* "Return ONLY valid JSON". No markdown blocks, no preamble, no postscript? The prompt asks for "Return ONLY valid JSON with this exact shape". Usually, this implies the output should be the JSON object. Sometimes models wrap in ```json ... ```. The prompt says "ONLY valid JSON", so I should output the raw JSON or a JSON block without text outside. Standard practice for "ONLY JSON" prompts is to output the JSON string.
+    *   *Shape Check:*
+        ```json
+        {
+          "technical_score": 0,
+          "communication_score": 0,
+          "completeness_score": 0,
+          "confidence_score": 0,
+          "missing_concepts": [
+            "Cross-language integration protocols",
+            "API contract management",
+            "Inter-team communication structures",
+            "Risk mitigation strategies",
+            "Stakeholder alignment",
+            "Testing and validation workflows",
+            "Documentation practices"
+          ],
+          "better_answer": "At TCS, I facilitated the integration by establishing a clear collaboration framework. First, I organized cross-functional meetings to define shared API contracts using OpenAPI/Swagger, ensuring both Python and Java teams agreed on data formats and endpoints. We implemented contract testing in the CI/CD pipeline to prevent breaking changes. I also set up bi-weekly syncs between the squads to address blockers early and maintain transparency. This proactive communication minimized friction and allowed us to deploy the automated workflows smoothly with no production incidents.",
+          "learning_resources": [
+            "STAR Method for Interview Answers",
+            "Guide to Cross-Functional Team Collaboration",
+            "API Design and Versioning Best Practices",
+            "Behavioral Interview Preparation Course"
+          ]
+        }
+        ```
+    *   *Scores Justification (Internal Monologue for robustness):*
+        *   Scores are definitely 0. The answer is a refusal. A refusal provides no information. Even "confidence" is 0 because the candidate failed to demonstrate professional confidence or composure; they displayed unprofessionalism.
+        *   Missing concepts are exhaustive relative to the refusal.
+        *   Better answer addresses the "Collaboration" and "Communication" aspects heavily while touching on the technical context.
+        *   Resources are relevant.
+
+5.  **Final Output Construction:**
+    *   Produce the JSON string.
+
+```json
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "Cross-language integration strategies",
+    "API contract definition and management",
+    "Inter-team communication channels",
+    "Conflict resolution and alignment",
+    "Documentation and knowledge sharing",
+    "Risk management and testing coordination",
+    "Stakeholder reporting"
+  ],
+  "better_answer": "At TCS, I prioritized structured collaboration to bridge the Python and Java teams. We started by defining a strict API contract using OpenAPI/Swagger, which served as the single source of truth for both sides. I organized bi-weekly technical syncs between the squads to review implementation progress and resolve integration blockers early. Additionally, we implemented contract testing in the CI/CD pipeline to ensure backward compatibility. This proactive communication framework minimized misunderstandings, accelerated development, and resulted in a seamless deployment of the automated workflows with zero downtime.",
+  "learning_resources": [
+    "STAR Method for Behavioral Interviews",
+    "Effective Cross-Team Collaboration Techniques",
+    "API Design Best Practices for Microservices",
+    "Professional Communication Skills for Developers"
+  ]
+}
+```
+
+This looks solid.
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "Cross-language integration strategies",
+    "API contract definition and management",
+    "Inter-team communication channels",
+    "Conflict resolution and alignment",
+    "Documentation and knowledge sharing",
+    "Risk management and testing coordination",
+    "Stakeholder reporting"
+  ],
+  "better_answer": "At TCS, I prioritized structured collaboration to bridge the Python and Java teams. We started by defining a strict API contract using OpenAPI/Swagger, which served as the single source of truth for both sides. I organized bi-weekly technical syncs between the squads to review implementation progress and resolve integration blockers early. Additionally, we implemented contract testing in the CI/CD pipeline to ensure backward compatibility. This proactive communication framework minimized misunderstandings, accelerated development, and resulted in a seamless deployment of the automated workflows with zero downtime.",
+  "learning_resources": [
+    "STAR Method for Behavioral Interviews",
+    "Effective Cross-Team Collaboration Techniques",
+    "API Design Best Practices for Microservices",
+    "Professional Communication Skills for Developers"
+  ]
+}
+2026-08-29 09:12:21,588 - INFO - ==================================================
+2026-08-29 09:13:07,051 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:13:07,059 - INFO - ==================================================
+2026-08-29 09:13:07,060 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** Asks about how competitive programming routine/discipline influenced task/deadline management in academic/professional projects.
+   - **Candidate Answer:** "Im too good I know right. You should learn from me"
+   - **Output Format:** Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`.
+   - **Constraints:** Return ONLY valid JSON.
+
+2.  **Evaluate Candidate Answer:**
+   - *Content:* The answer is completely unprofessional, irrelevant to the question, lacks any substantive content, and shows arrogance instead of self-awareness or reflection.
+   - *Technical Score:* 0/10. No technical content or relevant skills demonstrated.
+   - *Communication Score:* 0/10. Highly unprofessional, dismissive, poor tone, fails to address the prompt.
+   - *Completeness Score:* 0/10. Does not answer the question at all. Missing all expected elements (routine, discipline, task management, deadline handling, academic/professional application).
+   - *Confidence Score:* 10/10 (or maybe 2-3 for professionalism? But it's highly confident/arrogant. I'll give it a high score for confidence as requested, but note that it's misplaced/arrogant. Actually, confidence in interviews should be balanced. I'll give it a low score because it's unprofessional arrogance, not genuine confidence. Let's stick to 2/10 for confidence due to unprofessionalism/arrogance, or maybe 10/10 for raw confidence but 2/10 for professionalism. The prompt asks for "confidence_score", not professionalism. I'll give it a 3/10 because while it projects extreme self-assurance, it's toxic and counterproductive in an interview. Alternatively, I could give it a 10/10 for confidence but note the drawback in the text. I'll go with 2/10 to reflect that it's not constructive confidence.)
+   - *Missing Concepts:* Routine building, time management, strategic planning, problem decomposition, stress handling, goal setting, iterative improvement, prioritization, academic/professional application, transferable skills from CP.
+   - *Better Answer:* Needs to be a well-structured, professional response that directly addresses how CP habits translate to project management. Should mention skills like breaking down complex problems, time-boxing, consistent practice, handling pressure, prioritizing tasks, and applying these to deadlines.
+   - *Learning Resources:* Books/courses/articles on interview communication, professional etiquette, behavioral interview techniques (STAR method), time management, and transferring technical skills to professional contexts.
+
+3.  **Draft JSON (Mental Refinement):**
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 2,
+     "missing_concepts": [
+       "Time management and prioritization",
+       "Problem decomposition and planning",
+       "Consistent practice and routine building",
+       "Stress management under deadlines",
+       "Transferable skills application",
+       "Professional tone and self-awareness",
+       "Use of STAR method for behavioral questions"
+     ],
+     "better_answer": "Competitive programming has fundamentally shaped how I approach deadlines and complex projects. The rigorous practice schedule taught me how to break down massive, ambiguous problems into smaller, manageable subtasks—a skill I directly apply to project scoping and sprint planning. Additionally, competing within strict time limits has trained me to prioritize high-impact tasks, manage my energy efficiently, and maintain focus under pressure. I’ve carried this discipline into my academic group projects and professional responsibilities by creating structured work plans, setting interim milestone deadlines, and conducting regular progress reviews. This systematic approach not only helps me deliver on time but also minimizes last-minute bottlenecks and improves overall code quality through iterative refinement.",
+     "learning_resources": [
+       "Cracking the Coding Interview by Gayle Laakmann McDowell - Behavioral and Communication Chapters",
+       "The STAR Method Guide (Interview Query or Harvard Business Review)",
+       "Build a Better Interview Answer: Behavioral Questions for Engineers",
+       "Atomic Habits by James Clear - For translating routine discipline to professional workflows",
+       "LinkedIn Learning: Professional Interview Communication and Etiquette"
+     ]
+   }
+   ```
+
+4.  **Check Constraints:**
+   - Only valid JSON? Yes.
+   - Exact shape? Matches requested keys.
+   - Scores 0-10? Yes.
+   - Missing concepts array? Yes.
+   - Better answer string? Yes.
+   - Learning resources array? Yes.
+   - No extra text? I will ensure the output is strictly JSON only.
+
+   One minor adjustment: The confidence score. While the candidate is arrogant, arrogance is often scored low in professional interview contexts because it hinders collaboration and growth. I'll keep it at 2. Alternatively, I could give it a 10 for raw confidence but note it's unprofessional. I'll stick with 2 to reflect that it's not effective interview confidence. Actually, maybe 1 or 2 is fine. I'll go with 2.
+
+   Let's verify the JSON structure matches exactly:
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 2,
+     "missing_concepts": [...],
+     "better_answer": "...",
+     "learning_resources": [...]
+   }
+   ```
+   All good. I will generate the JSON now. I'll make sure there's absolutely no markdown formatting that could break JSON parsing if the prompt expects raw JSON, but usually markdown code blocks are fine. The prompt says "Return ONLY valid JSON with this exact shape:". I will output raw JSON without markdown to be strictly compliant, or use standard JSON formatting. I'll just output the raw JSON string.
+
+   Double-checking scores: 0,0,0,2 are appropriate.
+   Missing concepts: Directly address the gap.
+   Better answer: Professional, addresses the prompt, uses STAR implicitly.
+   Learning resources: Relevant to communication, interview prep, and habit formation.
+
+   All constraints met. Proceed. 
+   One thing: I'll format it as a clean JSON object. No extra text. Exactly as requested.
+   I will ensure the JSON is valid by escaping quotes if necessary, but the better_answer doesn't have internal quotes that would break it. I'll double-check.
+   Ready.✅
+   Output matches the refined JSON. 
+   Self-Correction/Refinement during thought: 
+   Should I adjust confidence score to reflect that while it's arrogant, it does show high self-belief? Interview evaluators typically penalize arrogance heavily, so a low score is correct. I'll keep it at 2.
+   The prompt says "Return ONLY valid JSON". I will output exactly that.
+   All good.✅
+   Generating. 
+   [Output Generation] -> *Proceeds*
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 2,
+     "missing_concepts": [
+       "Time management and prioritization",
+       "Problem decomposition and planning",
+       "Consistent practice and routine building",
+       "Stress management under deadlines",
+       "Transferable skills application to academic/professional contexts",
+       "Professional tone and interview etiquette",
+       "STAR method for behavioral responses"
+     ],
+     "better_answer": "Competitive programming has fundamentally shaped how I approach deadlines and complex projects. The rigorous practice schedule taught me how to break down massive, ambiguous problems into smaller, manageable subtasks—a skill I directly apply to project scoping and sprint planning. Additionally, competing within strict time limits has trained me to prioritize high-impact tasks, manage my energy efficiently, and maintain focus under pressure. I’ve carried this discipline into my academic group projects and professional responsibilities by creating structured work plans, setting interim milestone deadlines, and conducting regular progress reviews. This systematic approach not only helps me deliver on time but also minimizes last-minute bottlenecks and improves overall code quality through iterative refinement.",
+     "learning_resources": [
+       "Cracking the Coding Interview by Gayle Laakmann McDowell - Behavioral and Communication Chapters",
+       "The STAR Method Guide (Interview Query or Harvard Business Review)",
+       "Build a Better Interview Answer: Behavioral Questions for Engineers",
+       "Atomic Habits by James Clear - For translating routine discipline to professional workflows",
+       "LinkedIn Learning: Professional Interview Communication and Etiquette"
+     ]
+   }
+   ```
+   This matches all constraints. Output matches exactly. No extra text. Valid JSON. Scores 0-10. Arrays and strings properly formatted. Ready. 
+   Self-Correction/Note during generation prep: I'll make sure the JSON is strictly valid. I'll remove any potential markdown formatting if the prompt says "Return ONLY valid JSON", but typically markdown code blocks are acceptable. I'll just output raw JSON to be safe. Actually, the prompt says "Return ONLY valid JSON with this exact shape:". I will provide just the JSON object. All good. 
+   Proceeds. 
+   [Output Generation] -> *Outputs JSON*
+   *(Self-Correction/Verification during thought)*: 
+   Check JSON syntax: quotes, commas, brackets, braces. All correct.
+   Check keys: exact match.
+   Check values: numbers within 0-10, arrays of strings, strings.
+   All constraints satisfied. Output matches.✅
+   Final Output Generation. 
+   [Output] -> *Proceeds*
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 2,
+  "missing_concepts": [
+    "Time management and prioritization",
+    "Problem decomposition and planning",
+    "Consistent practice and routine building",
+    "Stress management under deadlines",
+    "Transferable skills application to academic/professional contexts",
+    "Professional tone and interview etiquette",
+    "STAR method for behavioral responses"
+  ],
+  "better_answer": "Competitive programming has fundamentally shaped how I approach deadlines and complex projects. The rigorous practice schedule taught me how to break down massive, ambiguous problems into smaller, manageable subtasks—a skill I directly apply to project scoping and sprint planning. Additionally, competing within strict time limits has trained me to prioritize high-impact tasks, manage my energy efficiently, and maintain focus under pressure. I’ve carried this discipline into my academic group projects and professional responsibilities by creating structured work plans, setting interim milestone deadlines, and conducting regular progress reviews. This systematic approach not only helps me deliver on time but also minimizes last-minute bottlenecks and improves overall code quality through iterative refinement.",
+  "learning_resources": [
+    "Cracking the Coding Interview by Gayle Laakmann McDowell - Behavioral and Communication Chapters",
+    "The STAR Method Guide (Interview Query or Harvard Business Review)",
+    "Build a Better Interview Answer: Behavioral Questions for Engineers",
+    "Atomic Habits by James Clear - For translating routine discipline to professional workflows",
+    "LinkedIn Learning: Professional Interview Communication and Etiquette"
+  ]
+}
+2026-08-29 09:13:07,060 - INFO - ==================================================
+2026-08-29 09:13:31,758 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:13:31,887 - INFO - ==================================================
+2026-08-29 09:13:31,887 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** "As the Technical Lead at HackClub SNU, what did you enjoy most about supporting your peers, and how do you generally foster a positive and collaborative environment within a technical team?"
+   - **Candidate Answer:** "I never supported them"
+   - **Output Format:** Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`
+   - **Constraint:** Return ONLY valid JSON
+
+2.  **Evaluate Candidate Answer against Question:**
+   - The question asks about enjoying supporting peers and fostering a positive/collaborative environment as a Technical Lead.
+   - The candidate's answer is a blunt, negative, unprofessional, and completely unhelpful statement: "I never supported them"
+   - It fails to address any part of the question positively or constructively.
+   - It shows poor communication, lack of leadership principles, zero collaboration awareness, and raises red flags about attitude/culture fit.
+
+3.  **Determine Scores (0-10 scale):**
+   - `technical_score`: The question isn't heavily technical, but relates to technical leadership/team dynamics. The answer shows zero understanding of technical leadership responsibilities. Score: 0
+   - `communication_score`: Extremely poor. Abrupt, negative, unprofessional. Score: 0
+   - `completeness_score`: Completely fails to answer the question. Score: 0
+   - `confidence_score`: While stated boldly, it's not productive confidence; it's dismissive. In an interview context, this reflects poorly on self-awareness and collaborative confidence. Score: 1 (maybe 0, but 1 acknowledges they spoke clearly, though negatively) -> I'll stick with 0 or 1. Let's go with 0 for professional confidence/context. Actually, confidence in interviews is about assurance + appropriateness. I'll give 0.
+   - Let's adjust to be strictly aligned with standard interview evaluation: 0 across the board is appropriate given the complete failure.
+
+4.  **Identify Missing Concepts:**
+   - Leadership & mentorship
+   - Peer support & knowledge sharing
+   - Building collaborative team culture
+   - Conflict resolution & psychological safety
+   - Technical team facilitation
+   - Positive reinforcement & feedback mechanisms
+
+5.  **Draft Better Answer:**
+   Need a structured, professional response that addresses both parts of the question:
+   - What they enjoyed most about supporting peers
+   - How they foster a positive/collaborative environment
+   - Should include concrete examples/methods (pair programming, code reviews, open feedback, psychological safety, shared goals, etc.)
+   - Keep it concise and relevant to a HackClub/technical community context.
+
+   Draft: "What I enjoyed most was watching peers grow and overcome technical roadblocks together. I fostered collaboration by establishing regular pair programming sessions, maintaining transparent documentation, and creating a blame-free environment for code reviews. I also prioritized psychological safety by actively soliciting input during planning meetings and celebrating small wins, which kept motivation high and encouraged knowledge sharing across the team."
+
+6.  **Identify Learning Resources:**
+   - Books/Courses on leadership & team building
+   - "The Manager's Path" by Camille Fournier
+   - Google's Project Aristotle (Psychological Safety)
+   - "Radical Candor" by Kim Scott
+   - Coursera: "Technical Leadership and Agility"
+   - Atlassian Team Playbook
+
+7.  **Construct JSON:**
+   Check format strictly:
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 0,
+     "missing_concepts": ["Leadership & mentorship", "Peer support strategies", "Fostering psychological safety", "Building collaborative culture", "Constructive feedback mechanisms"],
+     "better_answer": "What I enjoyed most was watching peers grow and overcome technical roadblocks together. I fostered collaboration by establishing regular pair programming sessions, maintaining transparent documentation, and creating a blame-free environment for code reviews. I also prioritized psychological safety by actively soliciting input during planning meetings and celebrating small wins, which kept motivation high and encouraged knowledge sharing across the team.",
+     "learning_resources": ["The Manager's Path by Camille Fournier", "Google Project Aristotle: Psychological Safety Research", "Radical Candor by Kim Scott", "Atlassian Team Playbook", "Coursera: Technical Leadership and Agility"]
+   }
+   ```
+
+   Validate against constraints:
+   - ONLY valid JSON? Yes.
+   - Exact shape? Yes.
+   - Scores 0-10? Yes.
+   - Missing concepts array? Yes.
+   - Better answer string? Yes.
+   - Learning resources array? Yes.
+
+   All good. I will output exactly this JSON. No extra text.✅
+   Self-Correction/Refinement during thought:
+   - Should I give non-zero scores? Even 0 is fine given the complete failure. I'll stick with 0.
+   - The prompt says "Return ONLY valid JSON with this exact shape:". I must ensure no markdown formatting interferes if possible, but standard JSON in markdown is fine. I'll output raw JSON to be safe.
+   - Check keys: technical_score, communication_score, completeness_score, confidence_score, missing_concepts, better_answer, learning_resources. All match.
+   - Values match types.
+   - Ready.✅
+   Output matches the constructed JSON. 
+   One minor thing: I'll make sure the JSON is strictly valid and matches the exact key names and types. All good. 
+   Proceed. 
+   Output generation. 
+   [Done] 
+   *Self-Correction/Verification during generation prep*: 
+   The prompt says "Return ONLY valid JSON with this exact shape:". I will output exactly the JSON object, nothing else. No markdown code blocks if possible, but typically markdown is fine. I'll just output the raw JSON string to be strictly compliant. Actually, standard practice allows markdown, but I'll stick to raw JSON to be safe. I'll format it properly. All values are correct. Scores are 0. Missing concepts are relevant. Better answer addresses the prompt. Resources are relevant. Ready. 
+   Output matches response. 
+   [Proceeds]
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": ["Technical leadership and mentorship", "Peer support and knowledge sharing", "Fostering psychological safety", "Building a collaborative team culture", "Constructive feedback and conflict resolution"],
+  "better_answer": "What I enjoyed most was seeing peers grow and solve complex problems together. I fostered a collaborative environment by implementing structured pair programming, maintaining transparent documentation, and establishing a blame-free code review culture. I also prioritized psychological safety by encouraging open dialogue during sprint planning, actively listening to diverse perspectives, and celebrating incremental wins to keep the team motivated and aligned.",
+  "learning_resources": ["The Manager's Path by Camille Fournier", "Google Project Aristotle: Psychological Safety Research", "Radical Candor by Kim Scott", "Atlassian Team Playbook", "Coursera: Technical Leadership and Agility"]
+}
+2026-08-29 09:13:31,889 - INFO - ==================================================
+2026-08-29 09:13:32,294 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-29 09:13:32,295 - INFO - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+2026-08-29 09:13:41,290 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:13:41,726 - INFO - ==================================================
+2026-08-29 09:13:41,726 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - The user provides a list of 5 interview Q&A pairs with associated scores (`technical_score` and `communication_score`).
+   - All `technical_score` values are 0.0.
+   - `communication_score` values are mostly 0.0, except the first one which is 1.0.
+   - The answers are extremely short, arrogant, unprofessional, and lack any technical detail or substance. Examples: "It was very easy for me. I'm too intelligent.", "For money", "I don't owe you an explanation", "Im too good I know right. You should learn from me", "I never supported them".
+   - The goal is to summarize the entire interview performance into a specific JSON format with: `overall_score`, `strengths`, `weaknesses`, `improvement_areas`, `topics_to_study`.
+
+2.  **Evaluate Performance based on Data:**
+   - **Overall Score:** Given all technical scores are 0 and communication scores are 0 or 1, the performance is extremely poor. I'll assign a very low score, like 1 or 2 out of 10. Let's go with 1.0.
+   - **Strengths:** Honestly, there are virtually none based on the answers. The first communication score is 1.0, maybe indicating the candidate spoke clearly/confidently, but the content is arrogant. I should note "Confidence in delivery (first response)" or maybe just state "None identified" or reframe it carefully. Actually, the prompt says to list strengths. I'll list something like "High confidence in self-assessment" but acknowledge it's not a professional strength. Better to be honest: "None that align with professional standards" or just list empty, but the format expects an array. I'll put ["Direct and concise responses", "High self-confidence"] but note that they are poorly applied. Actually, I'll stick to what's observable: "Clear articulation in initial response" (based on comm score 1.0).
+   - **Weaknesses:** Arrogant/unprofessional tone, complete lack of technical detail, failure to address questions substantively, poor teamwork/collaboration mindset, dismissive attitude, lack of preparation/humility.
+   - **Improvement Areas:** Professional communication, technical explanation skills, teamwork & collaboration, humility & receptiveness, structured answering technique (e.g., STAR method).
+   - **Topics to Study:** Technical fundamentals (MERN stack, microservices integration, system design), behavioral interviewing techniques, collaborative project management, professional etiquette, competitive programming to practical engineering translation.
+
+3.  **Map to JSON Structure:**
+   Need to ensure exact shape:
+   ```json
+   {
+     "overall_score": <number>,
+     "strengths": ["..."],
+     "weaknesses": ["..."],
+     "improvement_areas": ["..."],
+     "topics_to_study": ["..."]
+   }
+   ```
+
+   Let's draft the content carefully:
+   - `overall_score`: 1.0 (or 1)
+   - `strengths`: ["Direct communication style", "High self-assurance"] (keeping it neutral/factual based on scores)
+   - `weaknesses`: ["Completely unprofessional and dismissive tone", "Zero technical depth or explanation provided", "Lack of teamwork and collaborative mindset", "Failure to address questions substantively", "Arrogant and unprepared attitude"]
+   - `improvement_areas`: ["Professional communication and etiquette", "Structured storytelling (e.g., STAR method)", "Technical explanation and problem-solving articulation", "Teamwork, mentorship, and leadership soft skills", "Translating academic/competitive achievements to practical engineering contexts"]
+   - `topics_to_study`: ["MERN stack architecture and user-centric design principles", "Microservices integration and cross-language interoperability", "Behavioral interviewing techniques", "Agile collaboration and version control workflows", "Professional workplace communication and emotional intelligence"]
+
+4.  **Validate against Constraints:**
+   - Return ONLY valid JSON.
+   - Exact shape required.
+   - Scores are 0-10. I'll use 1.0.
+   - All arrays contain strings.
+   - Content accurately reflects the provided evaluations.
+
+   Check JSON syntax: Must be strictly valid. No markdown if possible, but the prompt says "Return ONLY valid JSON". I'll output raw JSON or markdown-wrapped JSON. I'll stick to raw JSON to be safe, or standard markdown code block. The prompt says "Return ONLY valid JSON with this exact shape:", so I will output just the JSON object.
+
+   Let's refine the content to ensure it's professional and accurately summarizes the Extremely poor performance:
+   overall_score: 1.0
+   strengths: ["Articulate delivery in initial response", "Strong self-belief"]
+   weaknesses: ["Unprofessional and dismissive communication", "Complete absence of technical detail", "Lack of collaborative or team-oriented mindset", "Inability or unwillingness to explain project experiences", "Arrogant demeanor undermining credibility"]
+   improvement_areas: ["Professional interview etiquette and tone", "Structured response frameworks (e.g., STAR/LACE)", "Technical depth and conceptual explanation", "Teamwork, mentorship, and emotional intelligence", "Translating competitive/academic achievements to real-world impact"]
+   topics_to_study: ["MERN stack architecture and UX/UI design principles", "Microservices integration patterns and API design", "Behavioral interview preparation and communication skills", "Agile team collaboration and project management", "Professional workplace dynamics and emotional intelligence"]
+
+   All looks solid. Matches the data perfectly. I will generate the JSON now.
+   One minor thing: The prompt says "Return ONLY valid JSON". I will output exactly the JSON string without any extra text.
+   Check structure:
+   {
+     "overall_score": 1.0,
+     "strengths": ["..."],
+     "weaknesses": ["..."],
+     "improvement_areas": ["..."],
+     "topics_to_study": ["..."]
+   }
+   Matches exactly.
+   Proceed. 
+   Self-Correction/Refinement during thought: 
+   Should I make overall_score an integer or float? The prompt says `<0-10>`, I'll use `1.0`.
+   The strengths are weak to non-existent given the answers, but I must provide an array. I'll keep it minimal: `["Direct phrasing", "High self-confidence"]`.
+   All good. Output matches request.✅
+   Generating. 
+   Output matches the final JSON.✅
+   [Done] 
+   Output Generation. 
+   ```json
+   {
+     "overall_score": 1.0,
+     "strengths": ["Direct phrasing", "High self-confidence"],
+     "weaknesses": ["Unprofessional and dismissive tone", "Complete lack of technical detail", "Absence of collaborative or team-oriented mindset", "Failure to address questions substantively", "Arrogant demeanor undermining credibility"],
+     "improvement_areas": ["Professional interview etiquette and communication", "Structured response frameworks (e.g., STAR method)", "Technical explanation and conceptual depth", "Teamwork, mentorship, and emotional intelligence", "Translating competitive/academic achievements to practical engineering impact"],
+     "topics_to_study": ["MERN stack architecture and user-centric design principles", "Microservices integration patterns and cross-language interoperability", "Behavioral interview techniques and professional communication", "Agile collaboration and project management workflows", "Workplace dynamics and emotional intelligence"]
+   }
+   ```
+   Matches exactly. No extra text. Ready. 
+   One thing: The prompt says "Return ONLY valid JSON with this exact shape:". I will output just the JSON object. No markdown formatting to be strictly compliant, or I'll use standard JSON. I'll just output raw JSON. Actually, markdown is fine, but I'll stick to raw to be safe. I'll just output the JSON string.
+   All good.✅
+   Proceeds. 
+   [Output Generation] -> *Self-Correction/Verification during generation prep*: 
+   I'll make sure the keys match exactly. 
+   `overall_score`, `strengths`, `weaknesses`, `improvement_areas`, `topics_to_study`. 
+   All correct. 
+   Output matches.✅
+   *Output Generation* (matches the refined JSON)
+   `{ "overall_score": 1.0, "strengths": ["Direct phrasing", "High self-confidence"], "weaknesses": ["Unprofessional and dismissive tone", "Complete lack of technical detail", "Absence of collaborative or team-oriented mindset", "Failure to address questions substantively", "Arrogant demeanor undermining credibility"], "improvement_areas": ["Professional interview etiquette and communication", "Structured response frameworks (e.g., STAR method)", "Technical explanation and conceptual depth", "Teamwork, mentorship, and emotional intelligence", "Translating competitive/academic achievements to practical engineering impact"], "topics_to_study": ["MERN stack architecture and user-centric design principles", "Microservices integration patterns and cross-language interoperability", "Behavioral interview techniques and professional communication", "Agile collaboration and project management workflows", "Workplace dynamics and emotional intelligence"] }`
+   Done. 
+   *Self-Correction/Note during thought*: The prompt says "Return ONLY valid JSON". I will format it properly with newlines for readability, as it's still valid JSON. I'll ensure no extra text surrounds it.
+   Final check of the prompt: "Return ONLY valid JSON with this exact shape:"
+   I will output exactly that.✅
+   Proceeds. 
+   [Output Generation] -> *Proceeds*
+</think>
+
+{
+  "overall_score": 1.0,
+  "strengths": ["Direct phrasing", "High self-confidence"],
+  "weaknesses": ["Unprofessional and dismissive tone", "Complete lack of technical detail", "Absence of collaborative or team-oriented mindset", "Failure to address questions substantively", "Arrogant demeanor undermining credibility"],
+  "improvement_areas": ["Professional interview etiquette and communication", "Structured response frameworks (e.g., STAR method)", "Technical explanation and conceptual depth", "Teamwork, mentorship, and emotional intelligence", "Translating competitive/academic achievements to practical engineering impact"],
+  "topics_to_study": ["MERN stack architecture and user-centric design principles", "Microservices integration patterns and cross-language interoperability", "Behavioral interview techniques and professional communication", "Agile collaboration and project management workflows", "Workplace dynamics and emotional intelligence"]
+}
+2026-08-29 09:13:41,727 - INFO - ==================================================
+2026-08-29 09:14:38,389 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 09:14:38,394 - INFO - ==================================================
+2026-08-29 09:14:38,394 - INFO - RAW AI OUTPUT (QUESTIONS):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert technical interviewer
+   - **Candidate Resume:** Affan Rahman, B.Tech CSE (2020-2024), CGPA 9.47. Projects: PhotoSignify (Flask, TensorFlow, Keras, CNN for face/signature classification), MotionPrint (accelerometer/gyroscope data, ensemble of 5 ML models for motion recognition, ongoing feature engineering), Movie Recommendation System (Python, BoW, Streamlit UI), E-commerce Website (MERN stack, Redux). Skills: ML, DL, NLP, Computer Vision, C, C++, Python, JS, TensorFlow, Scikit-Learn, Keras, SQL, MongoDB. Achievements: LeetCode 700+ problems, 3-star coder, Global rank 81 CodeChef, HackClub SNU Technical Lead, Codechef SNU Problem Setter.
+   - **Task:** Generate exactly 5 interview questions for a "Python" interview at "Easy" difficulty, personalized to the resume.
+   - **Rules:** Questions should reference specific skills/projects from the resume. Output MUST be exactly valid JSON in the format: `{"questions": ["question 1", "question 2", "question 3", "question 4", "question 5"]}`.
+
+2.  **Deconstruct Constraints:**
+   - Exactly 5 questions.
+   - Focus: Python programming.
+   - Difficulty: Easy.
+   - Personalized: Must reference resume specifics (projects, skills, achievements).
+   - Output format: Strict JSON `{"questions": [...]}`.
+   - No extra text.
+
+3.  **Brainstorming Questions (Mental Refinement):**
+   Need easy Python questions that tie into:
+   - Flask/TensorFlow/Keras (PhotoSignify)
+   - Scikit-Learn/Ensemble models (MotionPrint)
+   - Streamlit/BoW (Movie Recommendation)
+   - MERN (less Python, but can touch on data handling if needed, better stick to Python-heavy projects)
+   - LeetCode/Competitive programming background (easy Python syntax/data structures)
+   - Easy difficulty means focusing on fundamentals: lists, dictionaries, string manipulation, basic file I/O, simple functions, list comprehensions, error handling, basic library usage.
+
+   *Question 1 (PhotoSignify + Flask/Python fundamentals):* In your PhotoSignify project, you used Flask to serve a TensorFlow model. How would you handle a situation where a user uploads an image file in Python using the `requests` or `Flask` library, and what built-in Python data structure would you use to store metadata about processed images temporarily?
+   *Refinement for Easy:* Keep it simpler. Focus on Python fundamentals tied to the project. "In your PhotoSignify Flask API, you handle image uploads. Which Python built-in data structure would you use to temporarily store image metadata (like file names and prediction labels) during runtime, and why?"
+
+   *Question 2 (MotionPrint + Scikit-Learn/Python):* Your MotionPrint project uses an ensemble of 5 ML models. In Python, how would you iterate over a list of model predictions to calculate the majority vote for your ensemble output?
+   *Refinement:* "Your MotionPrint project uses an ensemble of 5 machine learning models. Given a list of prediction results like `[1, 1, 0, 1, 0]`, write a simple Python expression or loop to determine the majority class. Which built-in Python feature would you use to make this clean and efficient?" (Maybe too code-like for an interview question prompt, but okay. Let's make it a conceptual/syntax question suitable for easy level.)
+   Better: "In your MotionPrint project, you process sensor data using Python. If you receive a list of accelerometer readings, how would you use a Python list comprehension to filter out values that are below a certain threshold, say 0.5?"
+
+   *Question 3 (Movie Recommendation + BoW/Python):* You used a Bag of Words model in your Movie Recommendation System. How would you convert a list of movie review strings into a dictionary counting word frequencies using only basic Python features?
+   *Refinement:* "For your Movie Recommendation System, you processed text using a Bag of Words approach. How would you use Python’s `collections.Counter` or a standard dictionary to count the frequency of words in a given list of strings?"
+
+   *Question 4 (General Python + LeetCode/Competitive Programming):* With your strong competitive programming background on LeetCode and CodeChef, Python offers several ways to swap two variables without a temporary variable. How does this work in Python, and why is it considered Pythonic?
+   *Refinement:* "Given your experience solving 700+ problems on LeetCode, how would you swap two variables `a` and `b` in a single line of Python without using a temporary variable? What makes this approach considered 'Pythonic'?"
+
+   *Question 5 (Streamlit/Python UI + Error Handling):* Your Movie Recommendation System uses Streamlit for the UI. When building Python scripts for Streamlit, how do you typically handle unexpected user inputs or missing data to prevent the app from crashing?
+   *Refinement:* "In your Streamlit-based Movie Recommendation app, users might input unexpected or empty tags. What Python control flow statement would you use to gracefully handle potential `KeyError` or `ValueError` exceptions, and how would you structure it?"
+
+   Let's check difficulty: All are Easy. They reference resume specifics. They focus on Python fundamentals (data structures, list comprehensions, collections/dicts, tuple unpacking, exception handling). They are interview-style questions.
+
+   I need to ensure they are phrased clearly as interview questions and strictly match the JSON format.
+
+   Let's draft them carefully:
+   1. In your PhotoSignify Flask API, you handle incoming image requests. Which Python built-in data structure would you choose to temporarily store user image metadata (such as filename, timestamp, and prediction label) during a session, and why is it suitable for this use case?
+   2. Your MotionPrint project processes time-series sensor data. If you have a list of accelerometer readings, how would you use a Python list comprehension to efficiently filter out any values that fall below a specific threshold (e.g., 0.5)?
+   3. For your Movie Recommendation System, you implemented a Bag of Words model. How would you use Python’s standard dictionary operations or the `collections` module to count the frequency of each word in a preprocessed list of strings?
+   4. Given your competitive programming experience on LeetCode and CodeChef, how would you swap two numeric variables in Python without using a temporary variable or external library, and what is the underlying mechanism that enables this?
+   5. While developing your Streamlit-based recommendation interface, how would you use Python’s exception handling syntax to gracefully catch and manage potential `KeyError` or `ValueError` exceptions when parsing user inputs?
+
+   Check constraints:
+   - Exactly 5 questions? Yes.
+   - Python interview? Yes.
+   - Easy difficulty? Yes, covers basics: dicts, list comps, collections/Counter, tuple unpacking, try/except.
+   - Personalized to resume? Yes, references PhotoSignify, MotionPrint, Movie Rec System, LeetCode/CodeChef, Streamlit app.
+   - Output ONLY valid JSON in exact format? Yes.
+
+   One minor adjustment: Ensure the JSON format matches exactly `{"questions": ["question 1 text", "question 2 text", "question 3 text", "question 4 text", "question 5 text"]}`. The prompt says `{"questions": ["question 1 text", "question 2 text", "question 3 text"]}` as an example, but expects 5. I will output exactly 5 strings in the array.
+
+   Let's verify the exact wording matches the constraint: `{"questions": ["q1", "q2", "q3", "q4", "q5"]}`. I will make sure there are no markdown formatting issues that break JSON parsing, though usually markdown code blocks are fine. The prompt says "MUST output ONLY valid JSON", so I will output raw JSON without markdown backticks to be strictly compliant, or use backticks if it's standard. I'll output raw JSON to be safe.
+
+   Re-reading prompt: `{"questions": ["question 1 text", "question 2 text", "question 3 text"]}` -> I'll follow this structure with 5 items.
+
+   Draft:
+   {
+     "questions": [
+       "In your PhotoSignify Flask API, you handle incoming image requests. Which Python built-in data structure would you choose to temporarily store user image metadata (such as filename, timestamp, and prediction label) during a session, and why is it suitable for this use case?",
+       "Your MotionPrint project processes time-series sensor data. If you have a list of accelerometer readings, how would you use a Python list comprehension to efficiently filter out any values that fall below a specific threshold?",
+       "For your Movie Recommendation System, you implemented a Bag of Words model. How would you use Python’s standard dictionary operations or the collections module to count the frequency of each word in a preprocessed list of strings?",
+       "Given your competitive programming experience on LeetCode and CodeChef, how would you swap two numeric variables in Python without using a temporary variable or external library, and what is the underlying mechanism that enables this?",
+       "While developing your Streamlit-based recommendation interface, how would you use Python’s exception handling syntax to gracefully catch and manage potential KeyError or ValueError exceptions when parsing user inputs?"
+     ]
+   }
+
+   Check difficulty: All are easy. They test fundamental Python knowledge (dicts, list comprehensions, counters/dicts, tuple unpacking, try/except). All tie directly to resume projects/skills. Format is exact. No extra text. Ready.✅
+   One thing: The prompt example shows `{"questions": ["question 1 text", "question 2 text", "question 3 text"]}`. I will output exactly that structure with 5 items. I'll make sure it's minified or pretty-printed, doesn't matter as long as it's valid JSON. I'll stick to valid JSON.
+
+   Final check of the questions against "Easy" difficulty:
+   - Dict usage: Easy
+   - List comprehension: Easy
+   - Word counting with dict/collections: Easy
+   - Tuple unpacking swap: Easy
+   - Try/except: Easy
+   All good. Personalization is explicit. Output matches requirement. Proceed. 
+   I will generate the raw JSON string as requested. No extra text.✅
+   Output matches exactly.✅
+   Proceeds. 
+   Self-Correction/Refinement during thought: 
+   The prompt says: `{"questions": ["question 1 text", "question 2 text", "question 3 text"]}`. I will output exactly 5 strings in the array. I'll make sure the JSON is strictly valid. I will not add markdown formatting to be strictly compliant with "MUST output ONLY valid JSON". Actually, markdown is usually fine, but I'll just output raw JSON to be safe. I'll format it neatly.
+
+   All constraints met. Output matches.✅
+   Generating. 
+   [Output Generation] -> `{"questions": ["...", "...", "...", "...", "..."]}`
+   Done. 
+   *Self-Correction/Verification during generation prep*: 
+   Wait, the prompt says `{"questions": ["question 1 text", "question 2 text", "question 3 text"]}` as an example format. I will follow it exactly.
+   I will ensure the JSON is the only output.
+   All good. 
+   Proceeds. 
+   Output matches response. 
+   [Done] 
+   *Output Generation* (matches the final refined version)✅
+   `{ "questions": [ "In your PhotoSignify Flask API...", "...", "...", "...", "..." ] }` -> valid. 
+   Ready. 
+   [Output] -> *Proceeds*
+</think>
+
+{"questions": ["In your PhotoSignify Flask API, you handle incoming image requests. Which Python built-in data structure would you choose to temporarily store user image metadata (such as filename, timestamp, and prediction label) during a session, and why is it suitable for this use case?", "Your MotionPrint project processes time-series sensor data. If you have a list of accelerometer readings, how would you use a Python list comprehension to efficiently filter out any values that fall below a specific threshold, such as 0.5?", "For your Movie Recommendation System, you implemented a Bag of Words model. How would you use Python's standard dictionary operations or the collections module to count the frequency of each word in a preprocessed list of strings?", "Given your competitive programming experience on LeetCode and CodeChef, how would you swap two numeric variables in Python without using a temporary variable or external library, and what is the underlying mechanism that enables this?", "While developing your Streamlit-based recommendation interface, how would you use Python's exception handling syntax to gracefully catch and manage potential KeyError or ValueError exceptions when parsing unexpected user inputs?"]}`
+2026-08-29 09:14:38,395 - INFO - ==================================================
+2026-08-29 11:41:24,934 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-29 11:41:24,944 - INFO - ==================================================
+2026-08-29 11:41:24,944 - INFO - RAW AI OUTPUT (QUESTIONS):
+
+<think>
+Thinking Process:
+
+1.  **Deconstruct the Resume:**
+    *   *Candidate:* Affan Rahman.
+    *   *Education:* SISTER NIVEDITA UNIVERSITY, B.Tech in CS and Business Systems, 2020-2024, CGPA 9.68/10.
+    *   *Projects:*
+        *   File Compression and Encryption: Huffman technique, double layer encryption, Python, HTML, CSS.
+        *   Interiors: Interior Design Website, Pug, CSS, JS, Node.js, Express.js, MongoDB.
+        *   GetFit: Gym website, HTML, CSS.
+        *   MyMeal: Food Ordering System, HTML, CSS.
+    *   *Achievements:* 500+ LeetCode, Global Rank 81 CodeChef, 3-star coder, Technical Lead HackClub, Problem Setter/Tester.
+    *   *Skills:* C, C++, Python, JS, HTML, CSS, Node.js, Express.js, SQL, MongoDB.
+    *   *Coursework:* DS, Algo, OS, OOP, DBMS, ML, Compiler Design.
+
+2.  **Analyze the Task:**
+    *   *Role:* System Design Interview.
+    *   *Difficulty:* Easy.
+    *   *Count:* Exactly 5 questions.
+    *   *Personalization:* Must reference resume specifics.
+    *   *Output:* Valid JSON only.
+
+3.  **Draft Questions based on "Easy" System Design + Resume:**
+    *   *Goal:* "Easy" system design usually implies designing a component, a small service, or scaling a simple app. It shouldn't be "Design Twitter." It should be approachable for a fresher/junior but test fundamental design principles.
+    *   *Resume References:*
+        *   *File Compression/Encryption:* Good for discussing data handling, security, workflow design.
+        *   *Interiors (Node/Express/Mongo):* Good for backend architecture, API design, database schema.
+        *   *MyMeal (Food Ordering):* Classic system design topic (simplified). Even though the project is just frontend, the *domain* is rich for design questions. I can ask to extend this.
+        *   *Skills:* Node, Express, MongoDB, SQL.
+
+    *   *Drafting Q1: File Compression Project.*
+        *   *I:* How to design the system for file compression?
+        *   *Refinement:* The resume mentions Huffman and encryption.
+        *   *Question:* You built a File Compression and Encryption tool using Huffman coding and Python. How would you design a backend service that allows users to upload large files, compresses them using your algorithm, and stores them securely? Discuss the API flow and data storage strategy.
+        *   *Critique:* Good, references specific tech. Easy level? Yes, focuses on flow and storage.
+
+    *   *Drafting Q2: Interiors Project (Node/Mongo).*
+        *   *I:* Design the Interiors website backend.
+        *   *Refinement:* Resume mentions Node, Express, MongoDB.
+        *   *Question:* For your "Interiors" website project, you used Node.js, Express.js, and MongoDB. If this website needs to support uploading high-resolution interior design images and multiple users commenting on designs, how would you design the database schema and the API endpoints?
+        *   *Critique:* References specific stack. Easy level? Yes, schema design and basic API design.
+
+    *   *Drafting Q3: MyMeal Project (Food Ordering).*
+        *   *I:* Design MyMeal.
+        *   *Refinement:* Resume mentions "MyMeal" food ordering system front page.
+        *   *Question:* Your resume lists "MyMeal," a food ordering system frontend. Imagine you are hired to build the backend for this platform. How would you design the system to handle restaurant listings, menu items, and order placement? What data structures or database choices would you make?
+        *   *Critique:* References project domain. Easy level? Yes, basic CRUD and relationships.
+
+    *   *Drafting Q4: Scaling/Efficiency (LeetCode/CS background).*
+        *   *I:* Candidate has strong algo background (500+ LC, CodeChef).
+        *   *Refinement:* System design often touches on efficiency. But for "Easy," maybe focus on a rate limiter or cache?
+        *   *Better connection:* The candidate has SQL and MongoDB skills.
+        *   *Question:* You have experience with both SQL and MongoDB. For the "File Compression" project, if you needed to store user metadata and compression logs, how would you decide which database to use? Design a simple data model for storing user files and their compression history.
+        *   *Critique:* References skills and project. Easy level? Yes, DB choice trade-off.
+
+    *   *Drafting Q5: General/Easy Classic with Resume Twist.*
+        *   *I:* Design URL shortener? Too generic.
+        *   *Refinement:* Combine with "Interiors" or "MyMeal".
+        *   *Idea:* Design a notification system? Design a search?
+        *   *Connection:* "Interiors" has designs. Search is relevant.
+        *   *Question:* In your "Interiors" project, users might want to search for designs based on style, color, or price. How would you design a simple search feature using your knowledge of JavaScript and Node.js? Would you implement this on the backend or frontend, and how would you index the data?
+        *   *Critique:* References project, easy design topic.
+
+    *   *Review against constraints:*
+        *   5 Questions? Yes.
+        *   System Design? Yes (API design, Schema, Storage, DB choice, Search design are all entry-level system design topics).
+        *   Easy Difficulty? Yes. No distributed systems consensus, no massive scaling, no microservices complexity. Focuses on components, flows, and schemas.
+        *   Personalized?
+        *   Q1: File Compression, Huffman, Python.
+        *   Q2: Interiors, Node/Express/Mongo, Images/Comments.
+        *   Q3: MyMeal, Food Ordering, Backend extension.
+        *   Q4: SQL/Mongo, File Compression storage.
+        *   Q5: Interiors, Search.
+        *   Valid JSON? Need to format output.
+        *   Format: `{"questions": ["...", "...", "..."]}`.
+
+4.  **Final Polish of Questions (Mental Text Representation):**
+    *   Q1: "You developed a 'File Compression and Encryption' tool using Huffman coding. How would you design a web service API to handle file uploads, trigger the compression process, and return the secure file to the user? Describe the request flow and state management."
+    *   Q2: "For your 'Interiors' project, you utilized Node.js, Express.js, and MongoDB. If you needed to scale this to allow multiple designers to upload high-resolution images and clients to comment, how would you design the database schema and structure the Express routes?"
+    *   Q3: "Your resume mentions 'MyMeal,' a food ordering system. Imagine you are building the backend for this. How would you design the order management system to handle placing an order, tracking status, and preventing duplicate submissions? Discuss the key entities and relationships."
+    *   Q4: "Given your experience with both SQL and MongoDB, how would you design the storage layer for user metadata versus the actual compressed file blobs in your 'File Compression' project? Justify your technology choices based on the data characteristics."
+    *   Q5: "In the 'Interiors' website, you used Pug for the frontend. How would you implement a simple caching mechanism for static interior design assets to improve load times? Describe the flow between the client, server, and cache."
+        *   *Critique Q5:* Caching is a good easy system design topic. References Pug/Frontend. Good.
+
+    *   *Resulting List:*
+        1.  API Design for File Compression tool.
+        2.  DB Schema/Routes for Interiors scaling.
+        3.  Order System for MyMeal backend.
+        4.  Storage separation (SQL vs Mongo/Blob) for File Compression.
+        5.  Caching design for Interiors.
+
+    *   *Check "Easy" vs "Hard":* These are all solid "Easy" system design questions. They ask for schemas, flows, basic trade-offs, and component design. They don't ask for sharding, replication strategies, consensus algorithms, or handling million QPS. Perfect.
+
+5.  **Construct JSON:**
+    ```json
+    {
+      "questions": [
+        "You built a 'File Compression and Encryption' tool using Huffman coding in Python. How would you design a RESTful API workflow to allow users to upload files, trigger the compression/encryption process, and retrieve the result? Discuss the request flow and how you would manage temporary file state.",
+        "For your 'Interiors' project, you used Node.js, Express.js, and MongoDB. If this website needs to support multiple users uploading high-resolution design images and leaving comments, how would you design the database schema and structure the Express routes to handle these operations efficiently?",
+        "Your resume lists 'MyMeal,' a food ordering system frontend. Imagine you are tasked with designing the backend for this platform. How would you model the relationship between restaurants, menu items, and orders in the database, and what key API endpoints would you define?",
+        "You have proficiency in both SQL and MongoDB. For your 'File Compression' project, how would you decide between these databases for storing user profile data versus compression logs and metadata? Design a simple schema that leverages the strengths of your chosen database.",
+        "In your 'Interiors' project, you developed the frontend using Pug and CSS. If the site starts receiving significant traffic, how would you design a simple caching strategy for static assets and generated pages to improve performance? Describe the components involved."
+      ]
+    }
+    ```
+    *   *Validation:*
+        *   5 items? Yes.
+        *   Valid JSON? Yes.
+        *   References resume? Yes (File Compression, Huffman, Python, Interiors, Node/Express/Mongo, MyMeal, SQL/Mongo, Pug).
+        *   Easy System Design? Yes.
+        *   Output format matches requirement? Yes.
+
+This looks solid.
+</think>
+
+{
+  "questions": [
+    "You built a 'File Compression and Encryption' tool using Huffman coding in Python. How would you design a RESTful API workflow to allow users to upload files, trigger the compression/encryption process, and retrieve the result? Discuss the request flow and how you would manage temporary file state.",
+    "For your 'Interiors' project, you used Node.js, Express.js, and MongoDB. If this website needs to support multiple users uploading high-resolution design images and leaving comments, how would you design the database schema and structure the Express routes to handle these operations efficiently?",
+    "Your resume lists 'MyMeal,' a food ordering system frontend. Imagine you are tasked with designing the backend for this platform. How would you model the relationship between restaurants, menu items, and orders in the database, and what key API endpoints would you define?",
+    "You have proficiency in both SQL and MongoDB. For your 'File Compression' project, how would you decide between these databases for storing user profile data versus compression logs and metadata? Design a simple schema that leverages the strengths of your chosen database.",
+    "In your 'Interiors' project, you developed the frontend using Pug and CSS. If the site starts receiving significant traffic, how would you design a simple caching strategy for static assets and generated pages to improve performance? Describe the components involved."
+  ]
+}
+2026-08-29 11:41:24,944 - INFO - ==================================================
