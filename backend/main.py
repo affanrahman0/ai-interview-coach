@@ -27,7 +27,7 @@ app = FastAPI(
 
 origins = [
     "http://localhost:5173",   # Vite dev server
-    "https://ai-interview-coach-b84m.onrender.com",
+    "https://ai-interview-coach-pi-two.vercel.app",
 ]
 
 app.add_middleware(
