@@ -18,8 +18,8 @@ AI Interview Coach is a full-stack, AI-powered application designed to help user
 - **Containerization:** Docker & Docker Compose
 
 ## ☁️ Live Demo
-- **Frontend:** [Insert your Vercel URL here]
-- **Backend API Docs:** [Insert your Render URL here]/docs
+- **Frontend:** [https://ai-interview-coach-pi-two.vercel.app](https://ai-interview-coach-pi-two.vercel.app)
+- **Backend API Docs:** [https://ai-interview-coach-b84m.onrender.com/docs](https://ai-interview-coach-b84m.onrender.com/docs)
 
 ---
 
