@@ -2733,3 +2733,811 @@ This looks solid.
   ]
 }
 2026-08-29 11:41:24,944 - INFO - ==================================================
+2026-08-30 16:12:42,189 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:12:42,270 - INFO - ==================================================
+2026-08-30 16:12:42,271 - INFO - RAW AI OUTPUT (QUESTIONS):
+
+<think>
+Thinking Process:
+
+1.  **Deconstruct the Resume:**
+    *   *Name:* Affan Rahman.
+    *   *Education:* SIST NI Vedit University, B.Tech in Computer Science and Business Systems, 2020-2024 (Expected), CGPA 9.68/10. High school in Kolkata.
+    *   *Projects:*
+        *   MyMeal: Responsive front page of Food Ordering System using HTML/CSS.
+        *   GetFit: Front page of gym website using HTML/CSS.
+        *   Interiors: Interior Designing Website. Frontend: Pug, CSS, JavaScipt. Backend: Nodejs, Expressjs. DB: MongoDB.
+    *   *Achievements:* 470+ LeetCode problems, Global Rank 81 Oct Challenge 2021 Div 3 CodeChef, 3-star coder CodeChef (Highest 1611).
+    *   *Roles:* Technical Lead at HackClub SNU, Problem Setter and Tester executive at Codechef SNU Chapter.
+    *   *Skills:* C, C++, Python, Javascript, HTML, CSS, Nodejs, Expressjs, SQL, MongoDb. Coursework: DSA, OS, OOP, DBMS, ML, Design Analysis of Algorithm, Compiler Design.
+
+2.  **Determine Interview Type and Difficulty:**
+    *   *Type:* HR Interview.
+    *   *Difficulty:* Easy.
+    *   *Goal:* Personalized questions based on resume. "Easy" HR questions usually focus on self-introduction, motivation, teamwork, basic conflict resolution, and connecting past experiences to soft skills, rather than deep technical probing. However, the prompt asks to reference specific skills/projects. So, questions should be behavioral/personality-based but anchored in resume facts.
+
+3.  **Brainstorm Questions (Iterative Process):**
+    *   *Idea 1:* Academic performance. CGPA is 9.68. That's high. HR might ask about balancing academics and coding.
+        *   *Drafting:* "You have a fantastic CGPA of 9.68. How did you manage to keep your grades high while solving 470+ LeetCode problems and leading HackClub?"
+        *   *Refinement:* Good for HR. Shows time management. References CGPA, LeetCode, HackClub.
+    *   *Idea 2:* Projects. "Interiors" is the most complex project (Full stack-ish: Node, Express, MongoDB, Pug). Others are just HTML/CSS front pages.
+        *   *Drafting:* "Tell me about the Interiors project. What did you learn?"
+        *   *Refinement:* Too generic/technical. HR angle: "You worked on the 'Interiors' website using Node.js and MongoDB. Can you share a challenge you faced during this project and how you overcame it?"
+        *   *Check:* References specific tech. Easy difficulty (behavioral challenge). Good.
+    *   *Idea 3:* Leadership/Community. Technical Lead at HackClub SNU, Problem Setter at CodeChef SNU.
+        *   *Drafting:* "Why do you like coding contests?"
+        *   *Refinement:* "As Technical Lead at HackClub SNU and a Problem Setter for CodeChef SNU, you've shown leadership. What motivates you to contribute back to the student community?"
+        *   *Check:* References roles. HR focus: motivation, community contribution. Easy.
+    *   *Idea 4:* Coding Achievements. Global Rank 81, 3-star coder.
+        *   *Drafting:* "How do you feel about your rank?"
+        *   *Refinement:* "You achieved a Global Rank 81 in the CodeChef October 2021 challenge and are a 3-star coder. How does your competitive coding background help you in a team environment?"
+        *   *Check:* References specific achievements. HR focus: teamwork, transferring skills. Easy.
+    *   *Idea 5:* Career Goals/Why this role? (Standard HR, but needs personalization).
+        *   *Drafting:* "Why do you want to join us?"
+        *   *Refinement:* Hard to personalize without knowing the company. Better to ask about the transition or interest based on skills.
+        *   *Alternative:* "You have skills in both Frontend (HTML/CSS/JS) and Backend (Node.js/Express). Do you prefer building user interfaces like in your 'MyMeal' project, or working on server-side logic like in 'Interiors', and why?"
+        *   *Check:* References projects. HR focus: preference, self-awareness. Easy.
+
+4.  **Review and Select Top 5:**
+    *   1. CGPA + LeetCode + HackClub (Time management/Balance).
+    *   2. Interiors Project (Challenge/Learning).
+    *   3. HackClub/CodeChef Roles (Leadership/Community).
+    *   4. Coding Rank (Teamwork/Soft skills from competitive coding).
+    *   5. Full Stack vs Frontend preference based on MyMeal/GetFit/Interiors (Interest/Fit).
+
+    *List:*
+    *   Q1: With an impressive CGPA of 9.68 and over 470 problems solved on LeetCode, how do you prioritize and manage your time between rigorous academics and competitive coding?
+    *   Q2: You served as the Technical Lead at HackClub SNU and a Problem Setter for CodeChef SNU. Can you describe a time when you had to collaborate with teammates or mentor juniors in these roles?
+    *   Q3: In your 'Interiors' project, you used Node.js, Express.js, and MongoDB. What was the most interesting part of building this full-stack application compared to your frontend-only projects like 'MyMeal'?
+    *   Q4: You achieved a Global Rank 81 in the CodeChef October 2021 challenge. How does participating in competitive programming challenges help you handle pressure or solve problems during a hackathon or team project?
+    *   Q5: Your resume highlights projects ranging from responsive front pages ('GetFit') to a full-stack interior design website. What kind of development work excites you the most: creating polished user interfaces or building backend logic and databases?
+
+5.  **Format Output:**
+    *   Must be valid JSON.
+    *   Keys: `questions`.
+    *   Array of 5 strings.
+    *   Check constraints: "Exactly 5 questions", "HR interview", "Easy difficulty", "Personalized".
+
+    *JSON Construction:*
+    ```json
+    {
+      "questions": [
+        "With an impressive CGPA of 9.68 and over 470 problems solved on LeetCode, how do you prioritize and manage your time between rigorous academics and competitive coding?",
+        "You served as the Technical Lead at HackClub SNU and a Problem Setter for CodeChef SNU. Can you describe a time when you had to collaborate with teammates or mentor others in these roles?",
+        "In your 'Interiors' project, you used Node.js, Express.js, and MongoDB. What was the most interesting part of building this full-stack application compared to your frontend-only projects like 'MyMeal'?",
+        "You achieved a Global Rank 81 in the CodeChef October 2021 challenge. How does participating in competitive programming challenges help you handle pressure or solve problems during a team project?",
+        "Your resume highlights projects ranging from responsive front pages like 'GetFit' to a full-stack interior design website. What kind of development work excites you the most: creating polished user interfaces or building backend logic and databases?"
+      ]
+    }
+    ```
+
+6.  **Final Polish (Mental Check against Rules):**
+    *   *HR Interview?* Yes. Questions are behavioral, motivational, teamwork-oriented, time-management, and interest-based. Not asking for code explanation.
+    *   *Easy Difficulty?* Yes. Questions are open-ended, encouraging storytelling, basic conflict/collaboration scenarios, and preference identification. No complex puzzles or deep system design.
+    *   *Personalized?* Yes. References CGPA 9.68, LeetCode 470+, HackClub SNU, CodeChef SNU, Interiors project (Node/Express/Mongo), MyMeal, GetFit, Global Rank 81.
+    *   *Exactly 5 Questions?* Yes.
+    *   *Valid JSON?* Yes.
+    *   *Only valid JSON?* The output should be just the JSON block.
+
+    Result matches all criteria.
+</think>
+
+{
+  "questions": [
+    "With an impressive CGPA of 9.68 and over 470 problems solved on LeetCode, how do you balance and prioritize your time between rigorous academics and competitive coding?",
+    "You served as the Technical Lead at HackClub SNU and a Problem Setter for CodeChef SNU. Can you share a brief example of how you collaborated with teammates or mentored juniors in these roles?",
+    "In your 'Interiors' project, you built a full-stack application using Node.js, Express.js, and MongoDB. What did you enjoy most about working with backend technologies compared to the frontend-only projects like 'MyMeal'?",
+    "You achieved a Global Rank 81 in the CodeChef October 2021 challenge. How does your experience in competitive programming help you stay calm and focused when facing deadlines or challenges in a team setting?",
+    "Your projects range from creating responsive front pages for 'GetFit' and 'MyMeal' to developing a complete website for 'Interiors'. What type of work excites you more: designing user-friendly interfaces or building database-driven functionality?"
+  ]
+}
+2026-08-30 16:12:42,271 - INFO - ==================================================
+2026-08-30 16:13:30,084 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:13:30,091 - INFO - ==================================================
+2026-08-30 16:13:30,092 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Thinking Process:
+
+1.  **Deconstruct the Request:**
+    *   Role: Expert interview evaluator.
+    *   Question: "With an impressive CGPA of 9.68 and over 470 problems solved on LeetCode, how do you balance and prioritize your time between rigorous academics and competitive coding?"
+    *   Candidate Answer: "I'm spiderman"
+    *   Output Format: JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`.
+
+2.  **Evaluate the Candidate Answer:**
+    *   *Answer Analysis:* "I'm spiderman" is completely non-responsive. It's nonsense. It doesn't address time management, prioritization, balancing academics and coding, or the specific stats mentioned (CGPA 9.68, 470 LeetCode problems).
+    *   *Scores:*
+        *   `technical_score`: 0. No technical insight provided.
+        *   `communication_score`: 0. Failed to communicate a relevant answer.
+        *   `completeness_score`: 0. Addressed nothing.
+        *   `confidence_score`: 1? Or 0? The candidate stated "I'm spiderman" which is a confident statement, but in the context of an interview, it's likely a troll, a joke, or a break. However, strictly evaluating the *stance*, they volunteered information (even if false/nonsensical) without hesitation. Usually, in these evaluations, confidence is judged by the delivery of the answer to the question. Since the answer is garbage, the confidence in *addressing the prompt* is 0. However, sometimes models give a 1 for "at least they said something". Given the persona "Expert interview evaluator", I should score based on professional standards. This is a total failure. I'll assign 0 across the board, or maybe a 1 for confidence if interpreted as "boldness", but "boldness" isn't a virtue in an interview if the content is null. I'll stick to 0 for all scores because it provides no value. *Self-correction:* Sometimes LLM outputs for these tasks might assign a `confidence_score` of 1 because the sentence is declarative. Let's look at the nuance. If a candidate says "I'm Spiderman", they are confident in their identity, but they are failing the interview task. As an evaluator, I should penalize this heavily. I'll set `confidence_score` to 0 because confidence in a wrong/nonsensical direction is useless. Or perhaps the JSON structure implies numeric scores. I'll go with 0 for all to reflect the total lack of merit. *Refinement:* Actually, `confidence_score` might be interpreted as the candidate's self-assurance. "I'm spiderman" is very assured. So `confidence_score` could be 10? No, that would be misleading. A candidate who shouts nonsense is confident but not competent. Usually, these scores are holistic. I'll assign 0s. If I must distinguish, `confidence_score` might be 1 (they spoke clearly), but the content is void. I'll stick to 0s for a robust evaluation. *Final decision on scores:* 0, 0, 0, 0.
+
+    *   *Missing Concepts:*
+        *   Time management strategies.
+        *   Prioritization frameworks (e.g., Eisenhower Matrix, Pareto Principle).
+        *   Integration of academics and coding.
+        *   Specific techniques (Pomodoro, scheduling, batch processing).
+        *   Reflection on the balance (what works, what doesn't).
+        *   List: ["Time management strategies", "Prioritization frameworks", "Scheduling techniques", "Integration of study and practice", "Reflection and adaptation"].
+
+    *   *Better Answer:*
+        *   Needs to be structured.
+        *   Should address the high CGPA and LeetCode count.
+        *   Example structure: "I use a structured approach. 1. Time blocking: I dedicate mornings to coursework and evenings to LeetCode. 2. Integration: I apply DSA concepts learned in classes to LeetCode. 3. Review: I allocate Sundays for reviewing weak areas. This synergy helped me maintain the 9.68 while solving 470 problems."
+        *   Drafting the text: "A strong answer would outline specific time management techniques, such as time-blocking or the Pomodoro method. It should mention how the candidate integrates academic learning with coding practice to maximize efficiency. For example: 'I treat my day like a sprint. I block out specific hours for deep work on coding while using active recall for academic revision. I also leverage the overlap by applying algorithms learned in class to LeetCode problems immediately, which reinforces both. This structured prioritization allows me to maintain high performance in both areas without burnout.'"
+
+    *   *Learning Resources:*
+        *   Books on productivity.
+        *   Articles on time management for devs.
+        *   Frameworks.
+        *   List: ["Atomic Habits by James Clear", "Deep Work by Cal Newport", "Eisenhower Matrix guide", "Time management for developers tutorials"].
+
+3.  **Construct the JSON:**
+    *   `technical_score`: 0
+    *   `communication_score`: 0
+    *   `completeness_score`: 0
+    *   `confidence_score`: 0
+    *   `missing_concepts`: ["Time management strategies", "Prioritization frameworks", "Scheduling and planning", "Integration of academics and coding", "Burnout prevention"]
+    *   `better_answer`: "Thank you for asking. Balancing a high CGPA with competitive coding requires strict discipline and synergy. I use time-blocking to allocate dedicated slots for deep work on LeetCode and focused study sessions for academics. I also look for overlaps, applying data structures learned in coursework directly to problems on LeetCode to reinforce learning. Additionally, I use tools like the Eisenhower Matrix to prioritize high-impact tasks and ensure I review weak areas on weekends. This structured approach prevents burnout and maximizes efficiency in both domains."
+    *   `learning_resources`: ["Deep Work by Cal Newport", "Atomic Habits by James Clear", "Eisenhower Matrix prioritization method", "Pomodoro Technique guides"]
+
+4.  **Review and Refine:**
+    *   Check JSON validity. Keys match. Types match.
+    *   Scores are integers? The prompt implies `<0-10>`, usually integers or floats. I'll use integers.
+    *   `better_answer` is a string.
+    *   `missing_concepts` is an array of strings.
+    *   `learning_resources` is an array of strings.
+    *   Result looks solid. The answer "I'm spiderman" is a clear 0/0/0/0 scenario in an interview context.
+
+5.  **Final Output Generation:**
+    ```json
+    {
+      "technical_score": 0,
+      "communication_score": 0,
+      "completeness_score": 0,
+      "confidence_score": 0,
+      "missing_concepts": [
+        "Time management strategies",
+        "Prioritization frameworks",
+        "Scheduling techniques",
+        "Integration of academic and coding goals",
+        "Reflection on efficiency and burnout prevention"
+      ],
+      "better_answer": "I rely on a structured approach combining time-blocking and synergy. I dedicate specific mornings to deep work on LeetCode while reserving afternoons for academic lectures and assignments. Crucially, I integrate both by immediately applying algorithms learned in class to solve corresponding LeetCode problems, which reinforces concepts for exams and boosts coding proficiency. I also use the Eisenhower Matrix to prioritize high-impact tasks and schedule weekly reviews to adjust my plan, ensuring consistent progress without burnout.",
+      "learning_resources": [
+        "Deep Work by Cal Newport",
+        "Atomic Habits by James Clear",
+        "Eisenhower Matrix prioritization method",
+        "Time management techniques for developers",
+        "Pomodoro Technique guides"
+      ]
+    }
+    ```
+    This matches the thought process and constraints.
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "Time management strategies",
+    "Prioritization frameworks",
+    "Scheduling techniques",
+    "Integration of academic and coding goals",
+    "Reflection on efficiency and burnout prevention"
+  ],
+  "better_answer": "I rely on a structured approach combining time-blocking and synergy. I dedicate specific mornings to deep work on LeetCode while reserving afternoons for academic lectures and assignments. Crucially, I integrate both by immediately applying algorithms learned in class to solve corresponding LeetCode problems, which reinforces concepts for exams and boosts coding proficiency. I also use the Eisenhower Matrix to prioritize high-impact tasks and schedule weekly reviews to adjust my plan, ensuring consistent progress without burnout.",
+  "learning_resources": [
+    "Deep Work by Cal Newport",
+    "Atomic Habits by James Clear",
+    "Eisenhower Matrix prioritization method",
+    "Time management techniques for developers",
+    "Pomodoro Technique guides"
+  ]
+}
+2026-08-30 16:13:30,092 - INFO - ==================================================
+2026-08-30 16:13:56,061 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:13:56,066 - INFO - ==================================================
+2026-08-30 16:13:56,066 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** Asks about collaboration/mentoring experience in specific roles (Technical Lead at HackClub SNU, Problem Setter for CodeChef SNU).
+   - **Candidate Answer:** "I'm superman"
+   - **Output Format:** Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`. All scores 0-10.
+
+2.  **Evaluate Candidate Answer:**
+   - The answer "I'm superman" is completely irrelevant, unprofessional, and fails to address the question in any way.
+   - `technical_score`: 0 (No technical content related to leadership, problem setting, or collaboration)
+   - `communication_score`: 0 (Fails to communicate, completely off-topic, unprofessional)
+   - `completeness_score`: 0 (Does not address the prompt at all)
+   - `confidence_score`: 1 (The answer is extremely confident/defiant, but in an interview context, it's inappropriate. I'll give it a low score reflecting lack of professional confidence, maybe 1 or 2. Let's stick to 1 for misaligned confidence.)
+   - `missing_concepts`: Needs to list what's missing: collaboration examples, mentoring strategies, role-specific responsibilities, impact/results, professional communication.
+   - `better_answer`: Should provide a concise, relevant example using STAR method, tailored to the mentioned roles.
+   - `learning_resources`: Should suggest resources on interview skills, mentorship, collaboration, and communication.
+
+3.  **Construct JSON (Mental Refinement):**
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 1,
+     "missing_concepts": [
+       "Collaboration examples",
+       "Mentorship strategies",
+       "Role-specific responsibilities",
+       "Impact and outcomes",
+       "Professional communication"
+     ],
+     "better_answer": "In my role as Technical Lead at HackClub SNU, I collaborated closely with a team of five to design and execute a 48-hour hackathon. I facilitated weekly sprint planning, delegated tasks based on each member's strengths, and set up code review sessions to ensure quality. For CodeChef SNU, I mentored three junior problem setters by walking them through the process of crafting test cases, balancing difficulty levels, and providing constructive feedback on their drafts. This resulted in a 20% increase in participant engagement for our competitive programming contests.",
+     "learning_resources": [
+       "Cracking the Coding Interview - Collaboration & Leadership Chapters",
+       "The Mentor's Guide to Coaching (Stanford Career Services)",
+       "STAR Method for Behavioral Interviews (LinkedIn Learning)",
+       "Teamwork and Collaboration Skills (Coursera)"
+     ]
+   }
+   ```
+
+4.  **Check Constraints:**
+   - Return ONLY valid JSON
+   - Exact shape matches requirement
+   - Scores 0-10
+   - All fields present
+   - Content matches evaluation
+
+   Everything looks solid. The answer "I'm superman" is clearly a joke/test input, so scores will be at the bottom. The better answer provides a realistic, structured example. Learning resources are relevant. JSON format is strict.
+
+   One minor adjustment: `confidence_score` could be 0 or 1. I'll keep it at 1 to reflect the blunt delivery, but note it's unprofessional. Actually, confidence in an interview context usually refers to how assured and professional they sound. I'll stick with 1. Alternatively, 0 is fine too. I'll use 1.
+
+   Let's verify the exact shape:
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 1,
+     "missing_concepts": ["Collaboration examples", "Mentorship strategies", "Role-specific responsibilities", "Impact and outcomes", "Professional communication"],
+     "better_answer": "...",
+     "learning_resources": ["..."]
+   }
+   ```
+   Matches perfectly. I will generate exactly this. No extra text. Ensure valid JSON. Escape quotes if needed (none in my draft). All good.✅
+   Output matches response. 
+   Proceeds. 
+   Self-Correction/Refinement during thought: 
+   Should I make `confidence_score` 0? It's a subjective metric. I'll keep it at 1 to indicate they delivered it without hesitation, but it's irrelevant to professional standards. Actually, 0 is safer for completely off-topic/unprofessional. I'll stick with 0 for consistency with the 0s, or 1. Doesn't matter much. I'll use 0.
+   Let's ensure the JSON is strictly valid. I'll format it carefully.
+   All good. Output matches. 
+   Proceeds. 
+   [Output Generation] -> *Produces JSON*
+   *(Self-Correction/Verification during generation prep)*: 
+   Check prompt: "Return ONLY valid JSON with this exact shape:"
+   I will output exactly the JSON block. No markdown formatting if possible, or standard markdown JSON block. The prompt says "Return ONLY valid JSON", so I'll output raw JSON to be safe.
+   Structure:
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 0,
+     "missing_concepts": ["Collaboration examples", "Mentorship strategies", "Role-specific responsibilities", "Impact/outcomes", "Professional communication"],
+     "better_answer": "As Technical Lead at HackClub SNU, I coordinated a team of six to organize a campus hackathon. I established weekly syncs, delegated backend/frontend tasks based on skill sets, and implemented pair-debugging sessions to resolve bottlenecks. As a Problem Setter for CodeChef SNU, I mentored three first-year students by reviewing their problem drafts, guiding them on test-case generation, and helping them calibrate difficulty levels using platform analytics. This collaborative approach helped us increase contest participation by 25% and successfully onboard new organizers.",
+     "learning_resources": ["STAR Method for Behavioral Interviews (LinkedIn Learning)", "The First 90 Days by Michael Watkins (Leadership & Collaboration)", "Mentoring Fundamentals (Harvard Business Review)", "Teamwork Skills Specialization (Coursera)"]
+   }
+   Valid JSON. Matches constraints. Ready. 
+   Output matches exactly.✅
+   *Self-Correction/Note during thought*: The prompt says "Return ONLY valid JSON". I will output just the JSON string without markdown code blocks to be strictly compliant, though markdown is usually fine. I'll stick to raw JSON to be safe. Actually, markdown is standard, but I'll just output the raw JSON text. I'll format it properly.
+   All good.✅
+   Output Generation. 
+   [Output] -> *Proceeds*
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 1,
+  "missing_concepts": ["Collaboration examples", "Mentorship strategies", "Role-specific responsibilities", "Impact and outcomes", "Professional communication"],
+  "better_answer": "As Technical Lead at HackClub SNU, I coordinated a team of six to organize a campus hackathon. I established weekly syncs, delegated backend and frontend tasks based on individual strengths, and implemented structured code-review sessions to maintain quality. As a Problem Setter for CodeChef SNU, I mentored three first-year students by reviewing their problem drafts, walking them through edge-case testing, and helping them calibrate difficulty levels using past contest analytics. This collaborative and structured mentorship helped us increase contest participation by 25% and successfully onboard a new cycle of organizers.",
+  "learning_resources": ["STAR Method for Behavioral Interviews (LinkedIn Learning)", "The First 90 Days by Michael Watkins (Leadership & Team Collaboration)", "Mentoring Fundamentals (Harvard Business Review)", "Teamwork Skills Specialization (Coursera)"]
+}
+2026-08-30 16:13:56,067 - INFO - ==================================================
+2026-08-30 16:14:11,195 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:14:11,200 - INFO - ==================================================
+2026-08-30 16:14:11,200 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** "In your 'Interiors' project, you built a full-stack application using Node.js, Express.js, and MongoDB. What did you enjoy most about working with backend technologies compared to the frontend-only projects like 'MyMeal'?"
+   - **Candidate Answer:** "I'm Ironman"
+   - **Output Format:** Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`
+   - **Constraints:** Return ONLY valid JSON with the exact shape.
+
+2.  **Evaluate Candidate Answer:**
+   - The answer "I'm Ironman" is completely irrelevant to the question.
+   - It shows zero technical understanding, zero communication of relevant points, zero completeness, and likely low confidence/professionalism (or just a joke/test).
+   - Scores should be very low (0-2 range).
+   - Missing concepts: Backend vs frontend differences, Node.js/Express/MongoDB specifics, data handling, API design, server-side logic, state management, security, scalability, etc.
+   - Better answer: Needs to be a concise, relevant example comparing backend and frontend work, highlighting enjoyment of backend aspects (e.g., data modeling, API design, server logic, performance).
+   - Learning resources: Links/titles related to Node.js, Express, MongoDB, backend development best practices, interview preparation.
+
+3.  **Determine Scores:**
+   - `technical_score`: 0 (completely irrelevant)
+   - `communication_score`: 1 (it's a sentence, but doesn't address the prompt)
+   - `completeness_score`: 0
+   - `confidence_score`: 1 (states a definitive identity, but irrelevant; I'll give 1 for being direct, but technically it's unprofessional/not relevant. I'll stick to 1 or 0. Let's go with 1 to acknowledge it's not hesitant, but it's fundamentally wrong. Actually, 0 is probably fairer for confidence in an interview context. I'll give 1 to be consistent with "not rambling/hesitant", but 0 is fine too. I'll use 1.)
+   - Actually, let's keep them all at 0 or 1. I'll go with 0 for technical, 1 for communication, 0 for completeness, 1 for confidence.
+
+4.  **Draft Missing Concepts:**
+   - Backend vs frontend architecture differences
+   - Server-side logic and data processing
+   - RESTful API design with Express.js
+   - Database modeling and queries with MongoDB
+   - State management vs persistence
+   - Handling asynchronous operations/Node.js event loop
+   - Security and authentication concepts
+
+5.  **Draft Better Answer:**
+   "I really enjoyed diving into server-side logic and data architecture. Unlike 'MyMeal', which focused on UI state and user interactions, building the backend for 'Interiors' let me design RESTful APIs with Express.js and structure data efficiently using MongoDB. I found it rewarding to handle asynchronous operations, manage database queries, and ensure that the frontend could reliably fetch and display dynamic data. It gave me a much clearer picture of how full-stack applications actually work under the hood."
+
+6.  **Draft Learning Resources:**
+   - "Node.js Design Patterns" by Mario Casciaro
+   - "MongoDB University" (free courses on MERN stack)
+   - "Express.js Official Documentation"
+   - "REST API Design Rulebook" by Tom Johnson
+   - Frontend vs Backend: Complete Interview Guide (freeCodeCamp YouTube)
+
+7.  **Construct JSON:**
+   Check against schema:
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 1,
+     "completeness_score": 0,
+     "confidence_score": 1,
+     "missing_concepts": [
+       "Backend vs frontend architecture differences",
+       "Server-side logic and data processing",
+       "RESTful API design with Express.js",
+       "Database modeling and queries with MongoDB",
+       "State management vs data persistence",
+       "Asynchronous programming in Node.js",
+       "API security and authentication"
+     ],
+     "better_answer": "I really enjoyed diving into server-side logic and data architecture. Unlike 'MyMeal', which focused on UI state and user interactions, building the backend for 'Interiors' let me design RESTful APIs with Express.js and structure data efficiently using MongoDB. I found it rewarding to handle asynchronous operations, manage database queries, and ensure the frontend could reliably fetch dynamic data. It gave me a much clearer understanding of how full-stack applications work and how server-side decisions directly impact frontend performance.",
+     "learning_resources": [
+       "Node.js Design Patterns by Mario Casciaro",
+       "MongoDB University (Free MERN Stack Courses)",
+       "Express.js Official Documentation",
+       "REST API Design Rulebook by Tom Johnson",
+       "freeCodeCamp: Backend Development Interview Guide"
+     ]
+   }
+   ```
+
+8.  **Validate:**
+   - Only valid JSON? Yes.
+   - Exact shape? Yes.
+   - Scores 0-10? Yes.
+   - Missing concepts array? Yes.
+   - Better answer string? Yes.
+   - Learning resources array? Yes.
+   - Content matches evaluation of "I'm Ironman"? Yes, appropriately harsh but professional.
+
+   All constraints met. Output matches exactly. Proceed. 
+   Self-Correction/Refinement during thought: 
+   Confidence score of 1 might be debated, but it's fine. I'll adjust to 0 for consistency with the irrelevance, or keep 1. I'll stick with 1 to reflect that it's not hesitant, even though it's wrong. Actually, in interview contexts, irrelevant answers get 0 confidence in the domain. I'll set it to 1 to avoid penalizing tone vs content. It's fine.
+   All good. Output matches.✅
+   Generate. 
+   Output matches the JSON exactly. No extra text.✅
+   Proceeds. 
+   [Output Generation] -> *Proceeds*
+   *(Self-Correction/Verification during drafting)*: 
+   Check schema strictly: 
+   `{
+  "technical_score": <0-10>,
+  "communication_score": <0-10>,
+  "completeness_score": <0-10>,
+  "confidence_score": <0-10>,
+  "missing_concepts": ["..."],
+  "better_answer": "...",
+  "learning_resources": ["..."]
+}`
+   All keys present, types correct. Values are reasonable. Ready. 
+   Output matches response.✅
+   [Done] 
+   *Output Generation* (matches the final JSON)
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 1,
+     "completeness_score": 0,
+     "confidence_score": 1,
+     "missing_concepts": [
+       "Backend vs frontend architecture differences",
+       "Server-side logic and data processing",
+       "RESTful API design with Express.js",
+       "Database modeling and queries with MongoDB",
+       "State management vs data persistence",
+       "Asynchronous programming in Node.js",
+       "API security and authentication"
+     ],
+     "better_answer": "I really enjoyed diving into server-side logic and data architecture. Unlike 'MyMeal', which focused on UI state and user interactions, building the backend for 'Interiors' let me design RESTful APIs with Express.js and structure data efficiently using MongoDB. I found it rewarding to handle asynchronous operations, manage database queries, and ensure the frontend could reliably fetch dynamic data. It gave me a much clearer understanding of how full-stack applications work and how server-side decisions directly impact frontend performance.",
+     "learning_resources": [
+       "Node.js Design Patterns by Mario Casciaro",
+       "MongoDB University (Free MERN Stack Courses)",
+       "Express.js Official Documentation",
+       "REST API Design Rulebook by Tom Johnson",
+       "freeCodeCamp: Backend Development Interview Guide"
+     ]
+   }
+   ```
+   All constraints met. Output matches.✅
+   Proceeds. 
+   [Final Check of the Prompt]: "Return ONLY valid JSON with this exact shape:" -> I will output exactly that. No markdown formatting if possible, but markdown JSON block is usually fine. I'll output raw JSON to be strictly compliant. Actually, the prompt says "Return ONLY valid JSON", so I will output just the JSON string without markdown backticks to be safe, or keep backticks if it's standard. I'll stick to raw JSON. Wait, standard practice allows markdown. I'll just output the raw JSON string to be strictly compliant. Actually, it's fine either way. I'll output raw JSON.
+   Let's verify types: scores are numbers, missing_concepts is array of strings, better_answer is string, learning_resources is array of strings. All good.
+   Done. 
+   Output matches response. 
+   [Proceeds]
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 1,
+  "completeness_score": 0,
+  "confidence_score": 1,
+  "missing_concepts": [
+    "Backend vs frontend architecture differences",
+    "Server-side logic and data processing",
+    "RESTful API design with Express.js",
+    "Database modeling and queries with MongoDB",
+    "State management vs data persistence",
+    "Asynchronous programming in Node.js",
+    "API security and authentication"
+  ],
+  "better_answer": "I really enjoyed diving into server-side logic and data architecture. Unlike 'MyMeal', which focused on UI state and user interactions, building the backend for 'Interiors' let me design RESTful APIs with Express.js and structure data efficiently using MongoDB. I found it rewarding to handle asynchronous operations, manage database queries, and ensure the frontend could reliably fetch dynamic data. It gave me a much clearer understanding of how full-stack applications work and how server-side decisions directly impact frontend performance.",
+  "learning_resources": [
+    "Node.js Design Patterns by Mario Casciaro",
+    "MongoDB University (Free MERN Stack Courses)",
+    "Express.js Official Documentation",
+    "REST API Design Rulebook by Tom Johnson",
+    "freeCodeCamp: Backend Development Interview Guide"
+  ]
+}
+2026-08-30 16:14:11,201 - INFO - ==================================================
+2026-08-30 16:14:27,593 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:14:27,598 - INFO - ==================================================
+2026-08-30 16:14:27,598 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Expert interview evaluator
+   - **Question:** "You achieved a Global Rank 81 in the CodeChef October 2021 challenge. How does your experience in competitive programming help you stay calm and focused when facing deadlines or challenges in a team setting?"
+   - **Candidate Answer:** "Im thor"
+   - **Output Format:** Strict JSON with specific fields: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`.
+
+2.  **Evaluate Candidate Answer:**
+   - The answer "Im thor" is completely irrelevant, nonsensical, and fails to address the question in any way. It shows zero technical understanding, zero communication skill, zero completeness, and very low confidence (or just random spam).
+   - Scores should be very low, likely 0 or 1 across the board.
+   - `technical_score`: 0 (no technical content related to CP or teamwork)
+   - `communication_score`: 0 (completely irrelevant, unprofessional)
+   - `completeness_score`: 0 (fails to answer the prompt entirely)
+   - `confidence_score`: 0 (or 1, but given it's just "Im thor", it shows no professional confidence/poise)
+   - `missing_concepts`: Need to list what the candidate *should* have covered: handling pressure, time management, algorithmic thinking, teamwork/collaboration, stress management, translating CP skills to real-world scenarios.
+   - `better_answer`: Need to craft a strong, structured response that connects competitive programming experience to professional skills (calm under pressure, time management, debugging/analytical thinking, collaboration).
+   - `learning_resources`: Suggest resources for interview prep, communication skills, CP-to-industry transition, stress management/teamwork.
+
+3.  **Draft JSON Structure (Mental Refinement):**
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 0,
+     "missing_concepts": [
+       "Stress management under deadlines",
+       "Translating competitive programming skills to teamwork",
+       "Time management and prioritization",
+       "Analytical debugging and problem-solving",
+       "Professional communication and articulation"
+     ],
+     "better_answer": "Competitive programming taught me how to perform under pressure and optimize time usage. In environments like CodeChef, I had to quickly assess problem constraints, break down complex challenges, and maintain focus for hours. I translate this to team settings by staying calm during tight deadlines, methodically debugging issues, and breaking large tasks into manageable steps. Additionally, participating in team contests taught me clear communication, role delegation, and iterative feedback, which helps me collaborate effectively and support teammates when we hit roadblocks.",
+     "learning_resources": [
+       "Cracking the Coding Interview by Gayle Laakmann McDowell",
+       "Resources: LeetCode Interview Coder / Pramp for mock interviews",
+       "Articles on 'Competitive Programming to Software Engineering Transition'",
+       "Books: 'Atomic Habits' for focus/deadline management, 'Crucial Conversations' for team communication"
+     ]
+   }
+   ```
+
+4.  **Check Constraints:**
+   - Valid JSON? Yes.
+   - Exact shape? Yes.
+   - Scores 0-10? Yes.
+   - `missing_concepts` is an array of strings? Yes.
+   - `better_answer` is a string? Yes.
+   - `learning_resources` is an array of strings? Yes.
+   - No extra text? The prompt says "Return ONLY valid JSON with this exact shape:". I must ensure absolutely no markdown or text outside the JSON, or at least ensure the JSON is the only output. I'll output raw JSON to be safe.
+
+   Wait, let's verify the prompt: "Return ONLY valid JSON with this exact shape:". I will output just the JSON object.
+
+   Refining scores: Maybe 1 instead of 0 to strictly follow "0-10" but 0 is fine. I'll stick with 0.
+   Missing concepts: Make them concise.
+   Better answer: Ensure it directly addresses the prompt's key elements (CP experience, staying calm, deadlines, team setting).
+   Learning resources: Keep them relevant to interview skills, teamwork, and stress management.
+
+   All looks solid. I will generate the JSON now.
+   One minor thing: The prompt says `missing_concepts` and `learning_resources` are arrays of strings. I'll format them properly.
+   I'll double-check the exact keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`. All match.
+   Output matches exactly.✅
+   Proceed. 
+   Self-Correction/Verification during thought: 
+   Should I give 0 or 1? 0 is fine for a completely irrelevant answer. I'll use 0.
+   The JSON structure is strict. I will output it without markdown formatting to be strictly compliant with "Return ONLY valid JSON", though markdown is usually fine. I'll just output raw JSON.
+   All good. 
+   Generating. 
+   Output matches the refined JSON.✅
+   Note: I'll make sure the JSON is perfectly formatted. No extra text. Exactly as requested.✅
+   Proceeds. 
+   [Output Generation] -> *See response.* 
+   *(Self-Correction/Refinement during drafting)*: I'll make sure the `better_answer` directly ties CP to the prompt's specifics. The drafted one does. I'll adjust `learning_resources` to be more standard/interview-focused. e.g., ["Star Method framework guides", "Competitive Programming Teamwork transitions", "Mock interview platforms like Pramp/Interviewing.io", "Books: 'Crucial Conversations' & 'Deep Work'"]. This is fine.
+   All set. 
+   Output matches response. 
+   [Done.] 
+   *Output Generation* (matches the final refined JSON)
+   ```json
+   {
+     "technical_score": 0,
+     "communication_score": 0,
+     "completeness_score": 0,
+     "confidence_score": 0,
+     "missing_concepts": [
+       "Translating CP skills to professional environments",
+       "Stress and deadline management techniques",
+       "Team collaboration and communication strategies",
+       "Analytical breakdown of complex problems",
+       "Professional articulation of past achievements"
+     ],
+     "better_answer": "Competitive programming has trained me to analyze constraints quickly, optimize time usage, and maintain mental clarity under pressure. During long contests, I learned to break overwhelming problems into manageable steps and stay focused on one task at a time. I apply this to team deadlines by prioritizing tasks, staying calm when unexpected bugs arise, and systematically debugging rather than panicking. Additionally, team contests taught me the importance of clear communication, efficient role delegation, and constructive feedback, which enables me to support teammates and keep the group aligned when challenges arise.",
+     "learning_resources": [
+       "STAR Method framework for behavioral interviews",
+       "Pramp or Interviewing.io for mock interview practice",
+       "Book: 'Deep Work' by Cal Newport for focus and deadline management",
+       "Book: 'Crucial Conversations' for team communication skills"
+     ]
+   }
+   ```
+   Checks: Valid JSON? Yes. Exact shape? Yes. Scores 0-10? Yes. Arrays of strings? Yes. Only JSON? Yes. Ready. 
+   Output matches exactly.✅
+   *Self-Correction/Note during thought*: The prompt says "Return ONLY valid JSON with this exact shape:". I will output exactly that, without markdown code blocks to be strictly compliant, though markdown is usually parsed fine. I'll stick to raw JSON to be safe. Actually, markdown is fine, but I'll just output the raw JSON string. I'll ensure no extra text. All good. 
+   Proceeds. 
+   [Output Generation] -> *Proceeds*
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "Translating competitive programming skills to professional workflows",
+    "Stress and deadline management techniques",
+    "Team collaboration, role delegation, and communication",
+    "Systematic problem breakdown and debugging under pressure",
+    "Professional articulation of past achievements using structured frameworks"
+  ],
+  "better_answer": "Competitive programming has conditioned me to analyze constraints quickly, optimize time usage, and maintain mental clarity under pressure. During long contests, I learned to break overwhelming problems into manageable subtasks and avoid panic when initial approaches fail. I translate this to team settings by staying calm during tight deadlines, methodically debugging issues, and focusing on incremental progress. Additionally, participating in team contests taught me the importance of clear communication, efficient role delegation, and iterative feedback, which enables me to support teammates, align everyone on priorities, and keep the group focused when challenges arise.",
+  "learning_resources": [
+    "STAR Method framework guides for behavioral interviews",
+    "Pramp or Interviewing.io for structured mock interviews",
+    "Book: 'Deep Work' by Cal Newport (focus & deadline management)",
+    "Book: 'Crucial Conversations' (team communication under pressure)",
+    "Articles on 'From Competitive Programming to Software Engineering'"
+  ]
+}
+2026-08-30 16:14:27,599 - INFO - ==================================================
+2026-08-30 16:14:44,778 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:14:44,782 - INFO - ==================================================
+2026-08-30 16:14:44,782 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Thinking Process:
+1.  **Analyze the User Input:**
+    - Role: Expert interview evaluator.
+    - Question: Asks the candidate to choose between designing user-friendly interfaces vs. building database-driven functionality, based on their portfolio projects ('GetFit', 'MyMeal', 'Interiors').
+    - Candidate Answer: "I'm groot" (This is a pop culture reference, completely irrelevant, unprofessional, and shows zero understanding of the prompt).
+    - Output Format: Strict JSON with specific keys: `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`. Values must match the schema.
+
+2.  **Evaluate Scores (0-10):**
+    - `technical_score`: 0. No technical insight, completely misses the point of web development roles (UI/UX vs backend/database).
+    - `communication_score`: 0. Fails to communicate professionally or relevantly. It's a joke/reference that is entirely inappropriate for an interview.
+    - `completeness_score`: 0. Does not answer the question at all.
+    - `confidence_score`: 0 (or maybe 1 for being assertive, but realistically 0 because it shows no confidence in actually doing the job, just a cop-out). I'll stick with 0 or 1. Let's go with 0.
+    - `missing_concepts`: UI/UX design principles, database design/management, full-stack development, professional interview etiquette, relating past projects to personal strengths/preferences.
+    - `better_answer`: Needs to be a structured, professional response that addresses the prompt, acknowledges the projects, states a preference, explains why, and shows how they value both. Example: "While I find great satisfaction in crafting intuitive, responsive interfaces like I did for 'GetFit' and 'MyMeal', I am genuinely more excited by building database-driven functionality. Developing the 'Interiors' website allowed me to dive deep into backend architecture and data management. I see myself as a full-stack developer, but my strongest passion lies in creating robust, scalable databases that power seamless user experiences. I believe a great interface is only as good as the data architecture supporting it."
+    - `learning_resources`: "Professional Interview Skills for Developers", "Structure Your Interview Answers (STAR Method)", "Balancing Frontend UI/UX and Backend Database Design", "Communicating Technical Preferences in Interviews".
+
+3.  **Format Output:**
+    - Ensure strictly valid JSON.
+    - Check schema matches exactly.
+    - No extra text.
+
+    Draft JSON:
+    ```json
+    {
+      "technical_score": 0,
+      "communication_score": 0,
+      "completeness_score": 0,
+      "confidence_score": 0,
+      "missing_concepts": [
+        "UI/UX design principles",
+        "Database architecture and management",
+        "Front-end vs. back-end development roles",
+        "Professional interview etiquette",
+        "Relating portfolio projects to personal strengths",
+        "Full-stack development perspective"
+      ],
+      "better_answer": "While I enjoy crafting clean, responsive interfaces like I did for 'GetFit' and 'MyMeal', I am genuinely more passionate about building database-driven functionality. Developing the 'Interiors' website allowed me to dive deep into backend architecture and data modeling. I find that a truly seamless user experience relies heavily on a robust and scalable database behind the scenes. Ultimately, I see myself as a full-stack developer, but my core excitement lies in designing efficient data systems that power intuitive front-end experiences.",
+      "learning_resources": [
+        "The STAR Method for Interviewing",
+        "Communicating Technical Preferences Professionally",
+        "Full-Stack Development: Bridging UI/UX and Database Design",
+        "Professional Soft Skills for Software Engineers"
+      ]
+    }
+    ```
+
+4.  **Self-Correction/Verification:**
+    - Check shape: Matches exactly.
+    - Scores: Integers 0-10. All 0s are justified given the answer is literally "I'm groot".
+    - Missing concepts: List of strings. Relevant.
+    - Better answer: String. Directly addresses the prompt, uses the mentioned projects, shows professional tone.
+    - Learning resources: List of strings. Relevant to improving interview skills and technical balance.
+    - Format: ONLY valid JSON. No markdown if possible, or standard markdown JSON block. The prompt says "Return ONLY valid JSON with this exact shape:". I will output raw JSON to be safe.
+    - All constraints met. Proceed. 
+    - One minor thing: `confidence_score` might be better as 1 because they are at least speaking, but 0 is fine for an AI evaluator marking relevance. I'll stick with 0.
+    - I will ensure the JSON is perfectly formatted. No extra text.
+    - Ready.✅
+    - Output matches response. 
+    - Proceeds. 
+    - Output Generation. 
+    - [Self-Correction/Refinement during thought]: I should make sure the JSON keys match exactly. `technical_score`, `communication_score`, `completeness_score`, `confidence_score`, `missing_concepts`, `better_answer`, `learning_resources`. All good.
+    - The prompt says "Return ONLY valid JSON with this exact shape:". I will output just the JSON object.
+    - All good. 
+    - Output matches the draft.✅
+    - Proceeds. 
+    - [Output Generation] -> *Proceeds*
+</think>
+
+{
+  "technical_score": 0,
+  "communication_score": 0,
+  "completeness_score": 0,
+  "confidence_score": 0,
+  "missing_concepts": [
+    "UI/UX design principles",
+    "Database architecture and management",
+    "Front-end vs. back-end development roles",
+    "Professional interview etiquette",
+    "Relating portfolio projects to personal strengths",
+    "Full-stack development perspective"
+  ],
+  "better_answer": "While I truly enjoy crafting clean, responsive interfaces like I did for 'GetFit' and 'MyMeal', I am more excited by building database-driven functionality. Developing the 'Interiors' website gave me a chance to dive deep into backend architecture and data modeling. I find that a seamless user experience is only as strong as the data architecture supporting it. Ultimately, I operate best as a full-stack developer, but my core passion lies in designing efficient, scalable databases that power intuitive front-end interfaces.",
+  "learning_resources": [
+    "The STAR Method for Technical Interviews",
+    "Communicating Role Preferences in Developer Interviews",
+    "Full-Stack Development: Balancing UI/UX and Backend Architecture",
+    "Professional Soft Skills for Software Engineers"
+  ]
+}
+2026-08-30 16:14:44,782 - INFO - ==================================================
+2026-08-30 16:14:45,176 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-30 16:14:45,177 - INFO - Retrying request to /openai/v1/chat/completions in 20.000000 seconds
+2026-08-30 16:15:09,205 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-30 16:15:09,207 - INFO - ==================================================
+2026-08-30 16:15:09,208 - INFO - RAW AI OUTPUT (EVALUATION):
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - Input: A list of 5 interview Q&A pairs with technical_score and communication_score for each.
+   - Answers are all nonsensical/mock superhero/comic character names ("I'm spiderman", "I'm superman", "I'm Ironman", "Im thor", "I'm groot").
+   - Scores: Mostly 0.0 for technical, mostly 0.0 for communication (except one 1.0 for Q3).
+   - Task: Summarize the entire interview performance based on these evaluations.
+   - Output format: Strict JSON with keys: `overall_score`, `strengths`, `weaknesses`, `improvement_areas`, `topics_to_study`.
+
+2.  **Evaluate the Data:**
+   - *Technical Scores:* All 0.0 -> Indicates complete lack of technical understanding or relevant answers.
+   - *Communication Scores:* Most 0.0, one 1.0 -> Indicates poor communication, irrelevant answers, failure to address prompts.
+   - *Answers:* Completely irrelevant to questions. Shows lack of preparation, attention, or understanding of the interview process.
+   - *Overall Score:* Should be very low, given all scores are 0 or 1. I'll calculate an average or assign a logical low score. Since max score per question seems to be 10 (implied by 0-10 range for overall), and actual scores are ~0-1, overall should be around 0-2/10. I'll go with 0.5 or 1.0. Let's stick to 0.5 or 1.0. I'll use 0.5 to reflect the near-total failure.
+
+3.  **Determine JSON Fields:**
+   - `overall_score`: 0.5 (or 1.0)
+   - `strengths`: None really, but maybe "willingness to respond" or "creative humor"? But given the context, it's better to state "None identified" or focus on the single 1.0 communication score as a minor point, though it's still irrelevant. I'll list "None" or "Demonstrates a sense of humor" but keep it realistic to the evaluation. Actually, better to be direct: "None observed in technical or communication aspects."
+   - `weaknesses`: Irrelevant answers, failure to address questions, lack of technical knowledge demonstration, poor communication skills, unpreparedness.
+   - `improvement_areas`: Active listening, directly addressing prompts, structuring clear and relevant responses, demonstrating technical project knowledge, practicing interview communication.
+   - `topics_to_study`: Interview communication skills, STAR method for behavioral questions, backend/frontend technology fundamentals (Node.js, Express, MongoDB), competitive programming concepts, time management and prioritization strategies.
+
+4.  **Refine according to constraints:**
+   - Must return ONLY valid JSON.
+   - Exact shape required.
+   - I'll make sure the arrays contain concise strings.
+   - Overall score: I'll calculate average of (tech+comm)/2 per question? Not necessary. Just assign a low score like 0.5 or 1.0. I'll use 0.5.
+   - Strengths: Since all answers are jokes/non-answers, strengths are effectively none. I'll write ["None demonstrated in technical or communication aspects"] or similar.
+   - Weaknesses: ["Provided completely irrelevant answers to all questions", "Failed to demonstrate technical knowledge or project experience", "Lacked basic interview communication and active listening skills"]
+   - Improvement_areas: ["Practice directly addressing question prompts", "Learn and apply the STAR method for behavioral/project questions", "Develop clear technical explanations for past projects and achievements", "Improve active listening and focus during conversations"]
+   - Topics_to_study: ["Node.js, Express.js, and MongoDB fundamentals", "Competitive programming problem-solving strategies", "Technical interview communication", "Project explanation frameworks", "Time management and prioritization techniques"]
+
+   Check format: JSON only. Keys match exactly. Values are arrays of strings or number. All good.
+
+   One minor thing: The prompt says "Return ONLY valid JSON with this exact shape". I will ensure no markdown formatting interferes, or I'll wrap it in standard JSON. The prompt shows backticks in the example, but I'll output raw JSON or properly formatted JSON. I'll output just the JSON object.
+
+   Let's double check scores: All technical 0.0, comm mostly 0.0, one 1.0. Average is very low. 0.5 is fair.
+   I will construct the JSON carefully.
+
+   Structure:
+   {
+     "overall_score": 0.5,
+     "strengths": ["None identified"],
+     "weaknesses": ["Provided completely irrelevant answers to all questions", "Failed to address technical prompts or demonstrate project knowledge", "Lacked active listening and proper interview communication skills"],
+     "improvement_areas": ["Practice directly answering question prompts", "Master the STAR method for structuring behavioral and project responses", "Develop clear, concise technical explanations", "Improve focus and active listening during interviews"],
+     "topics_to_study": ["Node.js, Express.js, and MongoDB fundamentals", "Competitive programming concepts and time complexity", "Technical interview communication strategies", "Project portfolio explanation techniques", "Time management and prioritization frameworks"]
+   }
+
+   This matches the requirement. I'll output exactly this. No extra text. All constraints met.✅
+   Self-Correction/Verification during thought:
+   - Should I calculate overall_score mathematically? The scores are 0.0, 0.0, 1.0 out of presumably 10? The prompt says technical_score and communication_score are 0.0/1.0. It's likely out of 10 or 1. I'll just use 0.5 as it's clearly a failing performance. The exact number isn't strictly graded, but should be 0-10. 0.5 is fine.
+   - Strengths: Could say "None" or an empty array. I'll use ["None identified"] to be safe.
+   - All fields match exactly.
+   - Output only JSON.
+   Ready.✅
+   Output matches response. 
+   Proceeds. 
+   Generating. 
+   [Output Generation] -> *Self-Correction/Refinement during generation prep*: I'll make sure the JSON is perfectly valid and matches the exact keys. I'll use 1.0 for overall_score since there was one 1.0 score, but 0.5 is more representative. I'll stick with 0.5. The arrays will be concise. All good. 
+   Output matches the final JSON.✅
+   [Done] 
+   *Output Generation* (matches the response)
+   ```json
+   {
+     "overall_score": 0.5,
+     "strengths": ["None identified"],
+     "weaknesses": ["Provided completely irrelevant answers to all questions", "Failed to demonstrate technical knowledge or project experience", "Lacked active listening and proper interview communication skills"],
+     "improvement_areas": ["Practice directly addressing question prompts", "Master the STAR method for structuring behavioral and project responses", "Develop clear, concise technical explanations", "Improve focus and active listening during interviews"],
+     "topics_to_study": ["Node.js, Express.js, and MongoDB fundamentals", "Competitive programming concepts and algorithm design", "Technical interview communication strategies", "Project portfolio explanation techniques", "Time management and prioritization frameworks"]
+   }
+   ```
+   Wait, the prompt says "Return ONLY valid JSON with this exact shape:". I will output just the JSON object without markdown code blocks to be strictly compliant, or with markdown if it's standard. I'll stick to raw JSON to be safe, or standard markdown. The prompt says "Return ONLY valid JSON", so I'll output just the JSON text.
+   All good.✅
+   Proceeds. 
+   [Output Generation] -> *Self-Correction/Verification*: I'll make sure the JSON is properly formatted. No extra text. Exactly matches schema. Done. 
+   Output matches response. 
+   [Final Check of the Prompt]: "Return ONLY valid JSON with this exact shape: { ... }"
+   I will output exactly that.✅
+   Proceeds. 
+   [Output Generation] (Proceeds)
+</think>
+
+{
+  "overall_score": 0.5,
+  "strengths": ["None identified"],
+  "weaknesses": ["Provided completely irrelevant answers to all questions", "Failed to demonstrate technical knowledge or project experience", "Lacked active listening and proper interview communication skills"],
+  "improvement_areas": ["Practice directly addressing question prompts", "Master the STAR method for structuring behavioral and project responses", "Develop clear, concise technical explanations", "Improve focus and active listening during interviews"],
+  "topics_to_study": ["Node.js, Express.js, and MongoDB fundamentals", "Competitive programming concepts and algorithm design", "Technical interview communication strategies", "Project portfolio explanation techniques", "Time management and prioritization frameworks"]
+}
+2026-08-30 16:15:09,208 - INFO - ==================================================
