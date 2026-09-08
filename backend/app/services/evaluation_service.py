@@ -36,6 +36,7 @@ def evaluate_answer(question_text: str, answer_text: str) -> dict:
                 model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=800,
+                response_format={"type": "json_object"},
             )
 
             raw_output = response.choices[0].message.content or ""
@@ -88,6 +89,7 @@ def generate_final_feedback(interview) -> dict:
                 model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=800,
+                response_format={"type": "json_object"},
             )
             
             raw_output = response.choices[0].message.content or ""
