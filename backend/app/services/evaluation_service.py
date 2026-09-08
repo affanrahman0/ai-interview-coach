@@ -35,7 +35,7 @@ def evaluate_answer(question_text: str, answer_text: str) -> dict:
             response = client.chat.completions.create(
                 model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=4000,
+                max_tokens=800,
             )
 
             raw_output = response.choices[0].message.content or ""
@@ -87,7 +87,7 @@ def generate_final_feedback(interview) -> dict:
             response = client.chat.completions.create(
                 model="qwen/qwen3.6-27b",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=4000,
+                max_tokens=800,
             )
             
             raw_output = response.choices[0].message.content or ""
