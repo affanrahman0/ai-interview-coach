@@ -27,9 +27,9 @@ def generate_interview_questions(
             
             client = Groq(api_key=settings.GROQ_API_KEY)
             response = client.chat.completions.create(
-                model="qwen/qwen3.6-27b",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=800,
+                max_tokens=2000,
                 response_format={"type": "json_object"},
             )
 

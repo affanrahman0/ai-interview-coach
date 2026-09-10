@@ -33,9 +33,9 @@ def evaluate_answer(question_text: str, answer_text: str) -> dict:
             from groq import Groq
             client = Groq(api_key=settings.GROQ_API_KEY)
             response = client.chat.completions.create(
-                model="qwen/qwen3.6-27b",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=800,
+                max_tokens=2000,
                 response_format={"type": "json_object"},
             )
 
@@ -86,9 +86,9 @@ def generate_final_feedback(interview) -> dict:
             client = Groq(api_key=settings.GROQ_API_KEY)
             prompt = build_final_report_prompt(evaluations_summary)
             response = client.chat.completions.create(
-                model="qwen/qwen3.6-27b",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=800,
+                max_tokens=2000,
                 response_format={"type": "json_object"},
             )
             
