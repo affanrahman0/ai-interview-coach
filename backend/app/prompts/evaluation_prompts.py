@@ -9,6 +9,10 @@ You are an expert interview evaluator. Evaluate the candidate's answer below.
 Question: {question}
 Candidate Answer: {answer}
 
+Scoring Rules:
+1. IF the answer is random letters, gibberish, "I don't know", or completely unrelated, you MUST give a 0 for all scores.
+2. Be brutally honest and strict. Do not give average scores (4-6) just to be polite.
+
 Return ONLY valid JSON with this exact shape:
 {{
   "technical_score": <0-10>,
@@ -26,6 +30,10 @@ def build_final_report_prompt(all_evaluations: list) -> str:
     return f"""
 You are summarizing an entire interview performance based on these evaluations:
 {all_evaluations}
+
+Scoring Rules:
+1. IF the evaluations show terrible scores (0-3) or mostly gibberish/unrelated answers, DO NOT hallucinate strengths like "team collaboration". You MUST output ["None"] for strengths.
+2. Be brutally honest based ONLY on the provided evaluations. Do not make up facts.
 
 Return ONLY valid JSON with this exact shape:
 {{
